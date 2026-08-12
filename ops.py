@@ -32,9 +32,14 @@ import legistar_digest as core
 STATE = Path("state.json")
 HEALTH = Path("health.json")
 
-# A city that has produced signals before but returns nothing for this many
-# consecutive runs is presumed broken, not quiet.
-SILENT_RUNS_BEFORE_ALARM = 3
+# A city that has produced before but has gone this many DAYS without a
+# qualifying item is presumed broken rather than quiet.
+#
+# Counting runs was wrong: it assumes a weekly cadence, so four manual
+# re-runs in one afternoon read as four silent weeks. It also ignored that
+# a mid-size city routinely goes a month with no water item on the docket —
+# that is a normal council calendar, not a broken scraper.
+SILENT_DAYS_BEFORE_ALARM = 45
 
 
 # ---------------------------------------------------------------------------
@@ -103,26 +108,38 @@ def cmd_coverage(args) -> None:
 # ---------------------------------------------------------------------------
 # 2. Health — catch silent failure
 # ---------------------------------------------------------------------------
-def update_health(per_city_counts: dict[str, int]) -> list[str]:
-    """Returns list of alarm messages."""
+def _days_since(iso):
+    if not iso:
+        return None
+    try:
+        return (dt.date.today() - dt.date.fromisoformat(iso)).days
+    except ValueError:
+        return None
+
+
+def update_health(per_city_counts: dict) -> list:
+    """Returns alarm messages. Measures elapsed days, not run count."""
     health = load(HEALTH, {})
     alarms = []
     today = dt.date.today().isoformat()
 
     for client, n in per_city_counts.items():
-        h = health.setdefault(client, {"silent_runs": 0, "ever_produced": False,
-                                       "last_hit": None})
+        h = health.setdefault(client, {"ever_produced": False,
+                                       "last_hit": None, "empty_runs": 0})
+        h.pop("silent_runs", None)          # migrate off the old field
         if n > 0:
-            h["silent_runs"] = 0
-            h["ever_produced"] = True
-            h["last_hit"] = today
-        else:
-            h["silent_runs"] += 1
-            if h["ever_produced"] and h["silent_runs"] >= SILENT_RUNS_BEFORE_ALARM:
-                alarms.append(
-                    f"{client}: {h['silent_runs']} consecutive empty runs "
-                    f"(last hit {h['last_hit']}) — probably broken, not quiet"
-                )
+            h.update(ever_produced=True, last_hit=today, empty_runs=0)
+            continue
+
+        h["empty_runs"] = h.get("empty_runs", 0) + 1
+        if not h["ever_produced"]:
+            continue                        # never worked = config, not breakage
+        gap = _days_since(h["last_hit"])
+        if gap is not None and gap >= SILENT_DAYS_BEFORE_ALARM:
+            alarms.append(
+                f"{client}: no qualifying item in {gap} days "
+                f"(last {h['last_hit']}) — likely broken, not quiet"
+            )
     save(HEALTH, health)
     return alarms
 
@@ -132,15 +149,17 @@ def cmd_health(args) -> None:
     if not health:
         print("No health data yet — run `ops.py run` first.")
         return
-    print(f"{'client':<24} {'silent':>7}  {'last hit':<12} status")
+    print(f"{'client':<20} {'days quiet':>11}  {'last hit':<12} status")
     for client, h in sorted(health.items()):
-        status = "OK"
-        if h["ever_produced"] and h["silent_runs"] >= SILENT_RUNS_BEFORE_ALARM:
-            status = "!! CHECK"
-        elif not h["ever_produced"]:
-            status = "never produced"
-        print(f"{client:<24} {h['silent_runs']:>7}  "
-              f"{str(h['last_hit'] or '-'):<12} {status}")
+        gap = _days_since(h.get("last_hit"))
+        if not h.get("ever_produced"):
+            status, shown = "never produced (check code)", "-"
+        elif gap is not None and gap >= SILENT_DAYS_BEFORE_ALARM:
+            status, shown = "!! CHECK", str(gap)
+        else:
+            status, shown = "ok", str(gap if gap is not None else "-")
+        print(f"{client:<20} {shown:>11}  "
+              f"{str(h.get('last_hit') or '-'):<12} {status}")
 
 
 # ---------------------------------------------------------------------------
@@ -166,7 +185,6 @@ def cmd_run(args) -> None:
 
     if not fresh:
         print("No new items since last run.", file=sys.stderr)
-        # Still record the run so silent-failure counting stays honest
         save(STATE, {"seen": sorted(seen),
                      "last_run": dt.datetime.now().isoformat(timespec="seconds")})
         return
