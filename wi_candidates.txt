@@ -1,0 +1,82 @@
+# Wisconsin + Upper Midwest Legistar candidate client codes
+# Run: python ops.py coverage --candidates wi_candidates.txt
+#
+# Legistar codes are usually the city's Granicus subdomain — normally the
+# city name lowercased with no spaces. When that fails, try variants:
+#   cityof<name>, <name>wi, <name>city, or check <name>.legistar.com
+#   in a browser and read the subdomain.
+#
+# CONFIRMED WORKING (verified live):
+milwaukee
+madison
+racine
+stpaul
+
+# WISCONSIN — largest water utilities, highest LSL counts. Test these first.
+kenosha
+appleton
+waukesha
+oshkosh
+eauclaire
+janesville
+wausau
+lacrosse
+sheboygan
+fonddulac
+westallis
+brookfield
+beloit
+manitowoc
+wauwatosa
+newberlin
+menomoneefalls
+greenfield
+franklin
+oakcreek
+southmilwaukee
+cudahy
+westbend
+stevenspoint
+superior
+neenah
+watertown
+deforest
+sunprairie
+middleton
+fitchburg
+onalaska
+marshfield
+chippewafalls
+portwashington
+grafton
+whitewater
+platteville
+riverfalls
+menasha
+
+# CODE VARIANTS for the ones that failed under the obvious name
+cityofgreenbay
+greenbaywi
+cityofchicago
+chicagocityclerk
+evanstonil
+cityofevanston
+minneapolismn
+cityofminneapolis
+
+# MINNESOTA — natural territory pair (Upper Midwest rep coverage)
+duluth
+rochestermn
+bloomingtonmn
+brooklynpark
+plymouth
+mapplewood
+eagan
+burnsville
+
+# COUNTIES — often own the wastewater treatment plant
+milwaukeecounty
+danecounty
+waukeshacounty
+browncounty
+racinecounty
