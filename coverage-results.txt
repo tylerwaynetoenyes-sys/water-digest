@@ -1,0 +1,141 @@
+Testing 65 candidates...
+
+  ✓ milwaukee                ok
+  ✓ madison                  ok
+  ✓ racine                   ok
+  ✓ stpaul                   ok
+  ✗ kenosha                  HTTP 500
+  ✗ appleton                 HTTP 500
+  ✓ waukesha                 ok
+  ✗ oshkosh                  HTTP 500
+  ✗ eauclaire                HTTP 500
+  ✗ janesville               HTTP 500
+  ✗ wausau                   HTTP 500
+  ✗ lacrosse                 HTTP 500
+  ✗ sheboygan                HTTP 500
+  ✗ fonddulac                HTTP 500
+  ✗ westallis                HTTP 500
+  ✗ brookfield               HTTP 500
+  ✗ beloit                   HTTP 500
+  ✓ manitowoc                ok
+  ✗ wauwatosa                HTTP 500
+  ✗ newberlin                HTTP 500
+  ✗ menomoneefalls           HTTP 500
+  ✗ greenfield               HTTP 500
+  ✗ franklin                 HTTP 500
+  ✗ oakcreek                 HTTP 500
+  ✗ southmilwaukee           HTTP 500
+  ✗ cudahy                   HTTP 500
+  ✗ westbend                 HTTP 500
+  ✗ stevenspoint             HTTP 500
+  ✗ superior                 HTTP 500
+  ✗ neenah                   HTTP 500
+  ✗ watertown                HTTP 500
+  ✗ deforest                 HTTP 500
+  ✗ sunprairie               HTTP 500
+  ✗ middleton                HTTP 500
+  ✗ fitchburg                HTTP 500
+  ✗ onalaska                 HTTP 500
+  ✗ marshfield               HTTP 500
+  ✗ chippewafalls            HTTP 500
+  ✗ portwashington           HTTP 500
+  ✗ grafton                  HTTP 500
+  ✗ whitewater               HTTP 500
+  ✗ platteville              HTTP 500
+  ✗ riverfalls               HTTP 500
+  ✗ menasha                  HTTP 500
+  ✗ cityofgreenbay           HTTP 500
+  ✗ greenbaywi               HTTP 500
+  ✗ cityofchicago            HTTP 500
+  ✗ chicagocityclerk         HTTP 500
+  ✗ evanstonil               HTTP 500
+  ✗ cityofevanston           HTTP 500
+  ✓ minneapolismn            ok
+  ✗ cityofminneapolis        HTTP 500
+  ✗ duluth                   HTTP 500
+  ✗ rochestermn              HTTP 500
+  ✗ bloomingtonmn            HTTP 500
+  ✗ brooklynpark             HTTP 500
+  ✗ plymouth                 HTTP 500
+  ✗ mapplewood               HTTP 500
+  ✗ eagan                    HTTP 500
+  ✗ burnsville               HTTP 500
+  ✓ milwaukeecounty          ok
+  ✗ danecounty               HTTP 500
+  ✗ waukeshacounty           HTTP 500
+  ✗ browncounty              HTTP 500
+  ✗ racinecounty             HTTP 500
+
+8/65 reachable
+
+# Paste into CITIES in legistar_digest.py
+CITIES = {
+    "milwaukee": "milwaukee",
+    "madison": "madison",
+    "racine": "racine",
+    "stpaul": "stpaul",
+    "waukesha": "waukesha",
+    "manitowoc": "manitowoc",
+    "minneapolismn": "minneapolismn",
+    "milwaukeecounty": "milwaukeecounty",
+}
+
+# Not on Legistar (or wrong code) — these need a different
+# source, or you exclude them and SAY SO in your coverage list:
+#   kenosha  (HTTP 500)
+#   appleton  (HTTP 500)
+#   oshkosh  (HTTP 500)
+#   eauclaire  (HTTP 500)
+#   janesville  (HTTP 500)
+#   wausau  (HTTP 500)
+#   lacrosse  (HTTP 500)
+#   sheboygan  (HTTP 500)
+#   fonddulac  (HTTP 500)
+#   westallis  (HTTP 500)
+#   brookfield  (HTTP 500)
+#   beloit  (HTTP 500)
+#   wauwatosa  (HTTP 500)
+#   newberlin  (HTTP 500)
+#   menomoneefalls  (HTTP 500)
+#   greenfield  (HTTP 500)
+#   franklin  (HTTP 500)
+#   oakcreek  (HTTP 500)
+#   southmilwaukee  (HTTP 500)
+#   cudahy  (HTTP 500)
+#   westbend  (HTTP 500)
+#   stevenspoint  (HTTP 500)
+#   superior  (HTTP 500)
+#   neenah  (HTTP 500)
+#   watertown  (HTTP 500)
+#   deforest  (HTTP 500)
+#   sunprairie  (HTTP 500)
+#   middleton  (HTTP 500)
+#   fitchburg  (HTTP 500)
+#   onalaska  (HTTP 500)
+#   marshfield  (HTTP 500)
+#   chippewafalls  (HTTP 500)
+#   portwashington  (HTTP 500)
+#   grafton  (HTTP 500)
+#   whitewater  (HTTP 500)
+#   platteville  (HTTP 500)
+#   riverfalls  (HTTP 500)
+#   menasha  (HTTP 500)
+#   cityofgreenbay  (HTTP 500)
+#   greenbaywi  (HTTP 500)
+#   cityofchicago  (HTTP 500)
+#   chicagocityclerk  (HTTP 500)
+#   evanstonil  (HTTP 500)
+#   cityofevanston  (HTTP 500)
+#   cityofminneapolis  (HTTP 500)
+#   duluth  (HTTP 500)
+#   rochestermn  (HTTP 500)
+#   bloomingtonmn  (HTTP 500)
+#   brooklynpark  (HTTP 500)
+#   plymouth  (HTTP 500)
+#   mapplewood  (HTTP 500)
+#   eagan  (HTTP 500)
+#   burnsville  (HTTP 500)
+#   danecounty  (HTTP 500)
+#   waukeshacounty  (HTTP 500)
+#   browncounty  (HTTP 500)
+#   racinecounty  (HTTP 500)
