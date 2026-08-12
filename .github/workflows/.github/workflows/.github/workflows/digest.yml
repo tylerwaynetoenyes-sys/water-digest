@@ -1,0 +1,59 @@
+name: Weekly water digest
+
+on:
+  schedule:
+    - cron: '0 12 * * 1'
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install requests
+
+      - name: Build digest
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          DIGEST_FROM: ${{ vars.DIGEST_FROM }}
+        run: |
+          python ops.py run --days 14 --email-to "${{ vars.DIGEST_TO }}" \
+            2>&1 | tee run.log
+
+      - name: Rebuild public page
+        run: |
+          python build_site.py
+          test -s index.html || (echo "::error::index.html is empty"; exit 1)
+
+      - name: Commit results
+        run: |
+          git config user.name  "digest-bot"
+          git config user.email "digest-bot@users.noreply.github.com"
+          git add state.json health.json digest.md index.html 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "digest $(date -u +%F)"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
+
+      - name: Fail loudly on health alarms
+        if: always()
+        run: |
+          if grep -q "HEALTH ALARMS" run.log; then
+            echo "::error::A tracked city stopped returning results."
+            grep -A20 "HEALTH ALARMS" run.log
+            exit 1
+          fi
