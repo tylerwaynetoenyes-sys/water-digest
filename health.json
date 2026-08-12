@@ -2,7 +2,7 @@
   "madison": {
     "ever_produced": true,
     "last_hit": "2026-08-12",
-    "silent_runs": 1
+    "silent_runs": 2
   },
   "manitowoc": {
     "ever_produced": true,
@@ -17,12 +17,12 @@
   "milwaukeecounty": {
     "ever_produced": true,
     "last_hit": "2026-08-12",
-    "silent_runs": 1
+    "silent_runs": 2
   },
   "minneapolismn": {
     "ever_produced": false,
     "last_hit": null,
-    "silent_runs": 2
+    "silent_runs": 3
   },
   "racine": {
     "ever_produced": true,
