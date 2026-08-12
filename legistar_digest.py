@@ -34,74 +34,133 @@ TIMEOUT = 30
 # ---------------------------------------------------------------------------
 # Target municipalities. Legistar client codes are usually the city's Granicus
 # subdomain. Verify a new one with:  python legistar_digest.py --check <code>
-# These three are confirmed working.
+# All eight below were confirmed live by the coverage check.
 # ---------------------------------------------------------------------------
 CITIES: dict[str, str] = {
-    # --- Wisconsin: CONFIRMED working (tested live) ---
     "milwaukee": "Milwaukee, WI",
     "madison": "Madison, WI",
     "racine": "Racine, WI",
-    # --- Adjacent, confirmed ---
-    "stpaul": "St. Paul, MN", "waukesha": "Waukesha, WI",
+    "waukesha": "Waukesha, WI",
     "manitowoc": "Manitowoc, WI",
     "milwaukeecounty": "Milwaukee County, WI",
+    "stpaul": "St. Paul, MN",
     "minneapolismn": "Minneapolis, MN",
-    # Run `python ops.py coverage --candidates wi_candidates.txt` to find
-    # the rest. Confirmed NOT working under the obvious code: chicago,
-    # evanston, greenbay, minneapolis — they need a different client code
-    # or a non-Legistar source.
 }
 
 # ---------------------------------------------------------------------------
-# Signal scoring. This is the actual product — the keyword weighting is what
-# separates "a scraper" from "intelligence someone pays for". Tune it against
-# real customer feedback; that tuning becomes your moat.
+# Signal scoring v2 — rewritten after reviewing 26 real Wisconsin items.
+#
+# v1 let procurement words qualify on their own. A public library
+# renovation mentioning "awarding" and "Study Room" scored 19 and ranked
+# 4th in a water digest. One item like that costs a subscriber's trust.
+#
+# v2 splits keywords in two:
+#   DOMAIN — water/sewer subject matter. At least one is REQUIRED.
+#   STAGE  — position in the buying cycle. Boosts only, never qualifies.
+#
+# Tune these against customer feedback. This block is the product.
+#
+# DOMAIN — at least one required. This is the gate.
 # ---------------------------------------------------------------------------
-HIGH_VALUE = {
-    "lead service line": 10, "lead water line": 10, "service line replacement": 10,
-    "pfas": 9, "water treatment plant": 9, "wastewater treatment": 9,
-    "wastewater": 7, "emergency construction": 8, "construction contract": 5,
-    "design and construction": 6, "appropriation": 4, "bid award": 6,
-    "water main": 8, "sewer main": 8, "lift station": 8, "pump station": 8,
-    "capital improvement": 7, "water infrastructure": 7, "force main": 7,
-    "clarifier": 7, "aeration": 7, "sludge": 6, "dewatering": 6,
-    "filtration": 6, "disinfection": 6, "chlorination": 6,
-    "reservoir": 5, "stormwater": 5, "drainage": 4, "watermain": 8,
-    "sanitary sewer": 7, "potable water": 6, "water quality": 4,
-    # --- procurement-stage words: this is where the money actually is ---
-    "awarding": 9, "award of contract": 9, "capital budget": 8,
-    "engineering services": 8, "professional services": 5,
-    "feasibility": 7, "preliminary design": 8, "facility plan": 8,
-    "study": 4, "request for proposals": 8, "notice to bidders": 8,
+DOMAIN = {
+    # highest intent
+    "lead service line": 12, "service line replacement": 12, "lslr": 10,
+    "pfas": 10,
+    # plant / process equipment — where the big equipment money is
+    "water treatment plant": 10, "wastewater treatment": 10,
+    "treatment plant": 9, "lift station": 9, "pump station": 9,
+    "clarifier": 9, "aeration": 8, "digester": 8, "headworks": 8,
+    "disinfection": 8, "filtration": 8, "chlorination": 7, "uv system": 8,
+    "sludge": 7, "dewatering": 7, "biosolids": 7, "effluent": 6,
+    "scada": 7, "booster station": 8, "reservoir": 6, "water tower": 8,
+    "elevated tank": 8,
+    # linear infrastructure
+    "water main": 8, "watermain": 8, "force main": 8, "sanitary sewer": 7,
+    "storm sewer": 6, "sewer lining": 8, "sewer extension": 7,
+    "hydrant": 6, "water service": 6,
+    # general utility context (weaker, but still domain)
+    "wastewater": 6, "water utility": 6, "water works": 6, "sewer": 5,
+    "potable water": 6, "drinking water": 6, "stormwater": 5,
+    "water supply": 6, "water quality": 4,
 }
 
-# Phrases that mean the money is already spent or was never yours to win.
-# Getting these wrong is what makes a digest feel like spam — the customer
-# opens it, sees three completed subdivisions, and never opens it again.
+# ---------------------------------------------------------------------------
+# STAGE — buying-cycle position. Boosts only. Never qualifies on its own.
+# Earlier stage scores higher: that's the whole product thesis.
+# ---------------------------------------------------------------------------
+STAGE = {
+    "intent to apply": 9, "loan": 6, "priority evaluation": 7,   # 2+ yrs out
+    "facility plan": 9, "master plan": 9, "feasibility": 8,      # 1-3 yrs out
+    "preliminary design": 8, "capital improvement plan": 7,
+    "engineering services": 7, "professional services": 5,       # ~1-2 yrs out
+    "request for proposals": 7, "notice to bidders": 8,
+    "bid opening": 6, "bids received": 6, "awarding": 6,         # imminent
+    "award of contract": 6, "capital improvement": 4,
+    "change order": 3, "appropriation": 3, "upgrade": 4,
+    "replacement": 4, "rehabilitation": 5, "expansion": 5,
+}
+
+# ---------------------------------------------------------------------------
+# NEGATIVE — the project is over, or it's procedural noise.
+# ---------------------------------------------------------------------------
 NEGATIVE = {
-    "constructed by private contract": -14,  # developer built it, already done
-    "accepting": -6,                          # acceptance = project is over
-    "final acceptance": -10,
-    "temporary appointment": -20,
-    "reappointment": -20,
-    "internship": -20,
-    "nuisance": -20,
-    "annual report": -8,
-    "compliance maintenance annual report": -12,
+    "approval of minutes": -30, "minutes of the": -30,
+    "final payment": -25, "retainage": -25,
+    "constructed by private contract": -25, "final acceptance": -25,
+    "temporary appointment": -40, "reappointment": -40, "appointment of": -30,
+    "internship": -40, "nuisance": -40, "proclamation": -40,
+    "receive and file": -12, "annual report": -12,
+    "household hazardous waste": -20, "billing module": -20,
+    "public library": -40,
 }
 
-# Matter types that indicate real money moving vs. procedural noise
-TYPE_BOOST = {
-    "bill": 4, "ordinance": 4, "resolution": 3, "contract": 5,
-    "new business": 3, "public hearing": 2, "presentation": 2,
-    "consent calendar": 1,
-}
-TYPE_PENALTY = {
-    "appointment": -8, "minutes approval": -10, "proclamation": -8,
-    "closed session": -3, "information item": -1,
-}
+# "$30 million" must not parse as $30. That bug understated the single
+# biggest item in the first real digest by six orders of magnitude.
+MONEY = re.compile(
+    r"\$\s?([\d,]+(?:\.\d+)?)\s*(million|billion|m\b|bn\b)?", re.I)
+MULT = {"million": 1e6, "m": 1e6, "billion": 1e9, "bn": 1e9}
 
-MONEY = re.compile(r"\$\s?([\d,]+(?:\.\d{2})?)")
+
+def biggest_amount(text: str):
+    best = None
+    for num, unit in MONEY.findall(text):
+        try:
+            v = float(num.replace(",", ""))
+        except ValueError:
+            continue
+        if unit:
+            v *= MULT.get(unit.lower().strip(), 1)
+        best = v if best is None else max(best, v)
+    return best
+
+
+def score(title: str, matter_type: str = "") -> tuple[int, list[str]]:
+    low = f"{title} {matter_type}".lower()
+
+    domain_hits = [k for k in DOMAIN if k in low]
+    if not domain_hits:
+        return 0, []                      # THE GATE — no water, no entry
+
+    pts = max(DOMAIN[k] for k in domain_hits)          # best domain match
+    pts += sum(DOMAIN[k] for k in domain_hits) // 4    # small breadth bonus
+
+    stage_hits = [k for k in STAGE if k in low]
+    pts += max((STAGE[k] for k in stage_hits), default=0)
+
+    for k, w in NEGATIVE.items():
+        if k in low:
+            pts += w
+
+    amt = biggest_amount(title)
+    if amt:
+        if amt >= 5_000_000:
+            pts += 10
+        elif amt >= 500_000:
+            pts += 6
+        elif amt >= 50_000:
+            pts += 3
+
+    return pts, domain_hits + stage_hits
 
 
 @dataclass
@@ -130,7 +189,8 @@ def fetch_matters(client: str, since: dt.date, top: int = 200) -> list[dict]:
         "$top": str(top),
     }
     try:
-        r = requests.get(f"{API}/{client}/matters", params=params, timeout=TIMEOUT)
+        r = requests.get(f"{API}/{client}/matters", params=params,
+                         timeout=TIMEOUT)
         if r.status_code != 200:
             print(f"  ! {client}: HTTP {r.status_code}", file=sys.stderr)
             return []
@@ -138,41 +198,6 @@ def fetch_matters(client: str, since: dt.date, top: int = 200) -> list[dict]:
     except Exception as e:  # noqa: BLE001
         print(f"  ! {client}: {e}", file=sys.stderr)
         return []
-
-
-def score(title: str, matter_type: str) -> tuple[int, list[str]]:
-    low = title.lower()
-    pts, hits = 0, []
-    for kw, w in HIGH_VALUE.items():
-        if kw in low:
-            pts += w
-            hits.append(kw)
-    if not hits:
-        return 0, []
-
-    for kw, w in NEGATIVE.items():
-        if kw in low:
-            pts += w
-
-    t = (matter_type or "").lower()
-    for frag, w in TYPE_BOOST.items():
-        if frag in t:
-            pts += w
-            break
-    for frag, w in TYPE_PENALTY.items():
-        if frag in t:
-            pts += w
-            break
-
-    # Dollar figures in the title mean a real appropriation
-    if MONEY.search(title):
-        pts += 6
-    return pts, hits
-
-
-def biggest_amount(title: str) -> float | None:
-    vals = [float(m.replace(",", "")) for m in MONEY.findall(title)]
-    return max(vals) if vals else None
 
 
 def collect(cities: dict[str, str], days: int, floor: int = 6) -> list[Signal]:
@@ -200,7 +225,6 @@ def collect(cities: dict[str, str], days: int, floor: int = 6) -> list[Signal]:
                 matched=hits,
             ))
         time.sleep(0.4)  # be a good citizen
-    out.sort(key=lambda s: (-s.score, s.intro_date), reverse=False)
     return sorted(out, key=lambda s: -s.score)
 
 
@@ -209,7 +233,7 @@ def to_markdown(sigs: Iterable[Signal], days: int) -> str:
     today = dt.date.today().isoformat()
     money = [s.amount for s in sigs if s.amount]
     lines = [
-        f"# Municipal Water & Wastewater Signal Digest",
+        "# Municipal Water & Wastewater Signal Digest",
         f"*{today} — activity from the last {days} days*",
         "",
         f"**{len(sigs)} relevant items** across {len({s.city for s in sigs})} "
@@ -246,7 +270,8 @@ def main() -> None:
     a = p.parse_args()
 
     if a.check:
-        r = requests.get(f"{API}/{a.check}/matters", params={"$top": "1"}, timeout=TIMEOUT)
+        r = requests.get(f"{API}/{a.check}/matters",
+                         params={"$top": "1"}, timeout=TIMEOUT)
         print(f"{a.check}: HTTP {r.status_code}")
         if r.status_code == 200:
             print(json.dumps(r.json()[:1], indent=2)[:600])
