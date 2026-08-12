@@ -2,528 +2,737 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wisconsin Water &amp; Wastewater Project Tracker — August 2026</title>
-<meta name="description" content="62 active water and wastewater
- capital projects across 7 Wisconsin municipalities,
- $110,290,115 in identified appropriations. Updated weekly from public
- council records.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Wisconsin Municipal Water and Wastewater Project Tracker", "description": "Structured record of water and wastewater capital projects, contract awards, and engineering studies appearing in Wisconsin municipal council agendas. Updated weekly from public legislative records.", "temporalCoverage": "2026/2026-08-12", "spatialCoverage": {"@type": "Place", "name": "Wisconsin"}, "isAccessibleForFree": true, "dateModified": "2026-08-12", "creator": {"@type": "Organization", "name": "Wisconsin Water Signals"}, "distribution": {"@type": "DataDownload", "encodingFormat": "text/html"}, "variableMeasured": ["project value", "municipality", "procurement stage", "record identifier"]}</script>
+<meta name="color-scheme" content="light dark">
+<title>Wisconsin Water &amp; Wastewater Project Tracker</title>
+<meta name="description" content="63 active water and wastewater capital projects across 8 Wisconsin municipalities. $91,921,881 identified. Rebuilt weekly from public council records.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Wisconsin Municipal Water and Wastewater Project Tracker", "description": "63 active water and wastewater capital projects across 8 Wisconsin and upper-Midwest municipalities, representing $91,921,881 in identified appropriations. Compiled weekly from public municipal legislative records via the Legistar public API.", "temporalCoverage": "2026/2026-08-12", "spatialCoverage": {"@type": "Place", "name": "Wisconsin"}, "isAccessibleForFree": true, "dateModified": "2026-08-12", "creator": {"@type": "Person", "name": "Tyler Toenyes"}, "publisher": {"@type": "Organization", "name": "Wisconsin Water Signals"}, "variableMeasured": ["project value", "municipality", "procurement stage", "record identifier"]}</script>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#fbfcfd;color:#16232e;
- font:16px/1.6 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
-.wrap{max-width:820px;margin:0 auto;padding:40px 20px 80px}
-h1{font-size:30px;line-height:1.2;margin:0 0 8px;letter-spacing:-.02em}
-.sub{color:#5d7186;font-size:15px;margin:0 0 28px}
-.stats{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px;padding:0;list-style:none}
-.stats li{background:#fff;border:1px solid #e2e8ee;border-radius:8px;
- padding:12px 16px;flex:1 1 150px}
-.stats b{display:block;font-size:22px;letter-spacing:-.01em}
-.stats span{font-size:12px;color:#5d7186;text-transform:uppercase;letter-spacing:.06em}
-h2{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:#0f5c6b;
- margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid #e2e8ee}
-.item{background:#fff;border:1px solid #e2e8ee;border-radius:8px;
- padding:18px 20px;margin-bottom:12px}
-.item .top{display:flex;justify-content:space-between;gap:12px;
- font-size:12px;color:#5d7186;margin-bottom:8px}
-.city{font-weight:700;color:#0f5c6b;font-size:13px}
-.title{margin:6px 0 0;font-size:15px}
-.amt{font-weight:700;font-size:19px;margin-top:8px;letter-spacing:-.01em}
-.meta{margin-top:12px;padding-top:10px;border-top:1px solid #eef2f6;
- font-size:12px;color:#5d7186}
-.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;
- text-transform:uppercase;padding:3px 7px;border-radius:4px}
-.hot{background:#fdeee9;color:#a4442c}.mid{background:#e7f2f4;color:#0f5c6b}
-.low{background:#eef2f6;color:#5d7186}
-.cta{background:#16232e;color:#fff;border-radius:10px;padding:26px;margin:40px 0}
-.cta h3{margin:0 0 8px;font-size:19px}
-.cta p{margin:0 0 16px;color:#b8c6d2;font-size:14px}
-.cta a{display:inline-block;background:#fff;color:#16232e;text-decoration:none;
- font-weight:600;padding:11px 20px;border-radius:7px;font-size:14px}
-footer{margin-top:44px;padding-top:20px;border-top:1px solid #e2e8ee;
- font-size:13px;color:#5d7186}
-table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0 0}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid #eef2f6}
-th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#5d7186}
+:root{--bg:#ffffff;--surface:#f7f8f9;--ink:#17191c;--body:#2c3138;--secondary:#565d68;--line:rgba(23,25,28,.09);--line-soft:rgba(23,25,28,.07);--line-hard:rgba(23,25,28,.22);--planning:#33456b;--design:#1f5a66;--bidding:#8a4b1f;--on-fill:#ffffff;}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1113;--surface:#171b1e;--ink:#e8ebee;--body:#c6ced6;--secondary:#9aa4af;--line:rgba(255,255,255,.11);--line-soft:rgba(255,255,255,.08);--line-hard:rgba(255,255,255,.24);--planning:#8fa8d8;--design:#79b8c4;--bidding:#d99a72;--on-fill:#0e1113;}}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+ font-size:17px;line-height:1.55;font-variant-numeric:tabular-nums;
+ -webkit-font-smoothing:antialiased}
+main{display:block;max-width:1080px;margin:0 auto;background:var(--bg)}
+a{color:var(--design)}
+h1,h2,h3{font-weight:inherit}
+
+.mast{display:block;padding:26px 56px 18px}
+.mast-row{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+.wordmark{font-size:28px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.tagline{font-size:17px;color:var(--secondary);margin-top:3px}
+.contact{text-align:right;font-size:16px;color:var(--secondary);line-height:1.45}
+
+.build{margin:0;padding:10px 56px;font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;
+ letter-spacing:.04em;color:var(--secondary);
+ border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+ display:flex;gap:26px;flex-wrap:wrap}
+.build strong{color:var(--ink);font-weight:600}
+
+.hero{display:block;padding:44px 56px 34px}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:start}
+h1{font-size:44px;line-height:1.12;letter-spacing:-.024em;font-weight:700;
+ text-wrap:balance}
+.dek{margin-top:16px;font-size:20px;line-height:1.5;color:var(--body);
+ text-wrap:pretty}
+.pull{margin-top:16px;font-size:19px;line-height:1.5;color:var(--design);
+ font-weight:600;text-wrap:pretty}
+.provenance{font-size:17px;line-height:1.6;color:var(--secondary);
+ text-wrap:pretty}
+
+.figures{display:block;padding:0 56px 40px}
+h2{font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+ color:var(--secondary);margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+ border-top:1px solid var(--line-hard);border-bottom:1px solid var(--line)}
+.stats>div{padding:22px 28px}
+.stats>div+div{border-left:1px solid var(--line)}
+.stats>div:first-child{padding-left:0}
+.stats dd{font-size:31px;font-weight:700;letter-spacing:-.028em;line-height:1.1;
+ color:var(--ink)}
+.stats dt{margin-top:9px;font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--secondary)}
+.figures>p{margin-top:12px;font-size:16px;line-height:1.55;
+ color:var(--secondary);max-width:820px}
+
+.records{display:block;padding:0 56px 40px}
+.rec-head{display:flex;justify-content:space-between;align-items:baseline;
+ margin-bottom:16px}
+.rec-head p{font-size:16px;color:var(--secondary)}
+.rows{display:grid;grid-template-columns:118px 1fr 190px;gap:0 32px}
+.colhead{display:contents}
+.colhead span{font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--secondary);
+ padding-bottom:10px;border-bottom:1px solid var(--line-hard)}
+.colhead span:last-child{text-align:right}
+article{grid-column:1/-1;display:grid;grid-template-columns:subgrid;
+ padding:20px 0;border-bottom:1px solid var(--line)}
+.chip{display:inline-block;font-size:15px;font-weight:700;letter-spacing:.08em;
+ border-radius:3px}
+.chip.filled{color:var(--on-fill);padding:4px 9px}
+.chip.outlined{background:transparent;border:1.5px solid;padding:2.5px 7.5px}
+.chip.planning.filled{background:var(--planning)}
+.chip.bidding.filled{background:var(--bidding)}
+.chip.design.outlined{color:var(--design);border-color:var(--design)}
+.chip.tracking.outlined{color:var(--secondary);border-color:var(--secondary)}
+.sub{display:block;margin-top:5px;font-size:16px;color:var(--secondary)}
+article h3{font-size:19px;line-height:1.45;font-weight:500;text-wrap:pretty;
+ color:var(--ink)}
+.meta{margin-top:9px;font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:16px;color:var(--secondary)}
+.meta .place{color:var(--ink);font-weight:600}
+.amount{text-align:right;font-size:32px;font-weight:700;letter-spacing:-.028em;
+ line-height:1.1;color:var(--ink)}
+.amount.none{font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;font-weight:400;
+ letter-spacing:.06em;color:var(--secondary)}
+
+.two{padding:0 56px 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;
+ align-items:start}
+table{width:100%;border-collapse:collapse;font-size:17px}
+th{text-align:left;font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;letter-spacing:.08em;
+ text-transform:uppercase;color:var(--secondary);font-weight:400;
+ padding-bottom:10px;border-bottom:1px solid var(--line-hard)}
+td{padding:11px 0;border-bottom:1px solid var(--line);color:var(--body)}
+td:first-child{color:var(--ink)}
+.lede{font-size:19px;font-weight:600;line-height:1.45;margin-bottom:16px;
+ color:var(--ink)}
+ol{list-style:none;counter-reset:m}
+ol li{counter-increment:m;position:relative;padding-left:38px;
+ margin-bottom:12px;font-size:17px;line-height:1.55;color:var(--body)}
+ol li::before{content:"0" counter(m);position:absolute;left:0;
+ font-family:ui-monospace,'Cascadia Mono',Consolas,'Segoe UI Mono','Liberation Mono',monospace;font-size:15px;color:var(--secondary)}
+
+.sub-block{margin:0 56px 40px;padding:30px 34px;background:var(--surface);
+ border:1px solid var(--line)}
+.sub-block p{font-size:19px;font-weight:600;margin-bottom:14px;color:var(--ink)}
+.sub-block .fine{font-size:16px;font-weight:400;color:var(--secondary);
+ margin-bottom:18px}
+form{display:flex;gap:10px;flex-wrap:wrap}
+input{flex:1 1 260px;font:400 17px -apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;padding:13px 15px;
+ border:1px solid var(--line-hard);background:var(--bg);color:var(--ink)}
+button{font:600 17px -apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;padding:13px 28px;border:none;cursor:pointer;
+ background:var(--design);color:var(--on-fill)}
+
+footer{padding:26px 56px 44px;border-top:1px solid var(--line);
+ display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:36px;
+ font-size:16px;line-height:1.6;color:var(--secondary)}
+footer strong{display:block;color:var(--ink);font-weight:600}
+
+@media(max-width:820px){
+ .hero-grid,.two,footer{grid-template-columns:1fr;gap:26px}
+ .rows{grid-template-columns:1fr}
+ article{grid-template-columns:1fr;gap:10px}
+ .colhead{display:none}
+ .amount{text-align:left;font-size:28px}
+ .mast,.hero,.figures,.records,.two,footer{padding-left:20px;padding-right:20px}
+ .build{padding-left:20px;padding-right:20px;gap:14px}
+ .sub-block{margin-left:20px;margin-right:20px}
+ h1{font-size:34px}
+}
+@media print{body{background:#fff} .sub-block{display:none}}
+
 </style>
-</head><body><div class="wrap">
+</head><body>
+<main>
 
-<h1>Wisconsin Water &amp; Wastewater Project Tracker</h1>
-<p class="sub">Capital projects, contract awards, and engineering studies
- from municipal council records. Updated weekly &middot;
- Last updated August 12, 2026</p>
+<header class="mast">
+ <div class="mast-row">
+  <div>
+   <p class="wordmark">Wisconsin Water Signals</p>
+   <p class="tagline">Municipal water &amp; wastewater capital projects ·
+    Wisconsin and upper Midwest</p>
+  </div>
+  <p class="contact">Updated weekly<br><a href="tel:+13142674194">(314) 267-4194</a></p>
+ </div>
+</header>
 
-<ul class="stats">
-  <li><b>62</b><span>Active items</span></li>
-  <li><b>7</b><span>Municipalities</span></li>
-  <li><b>$110,290,115</b><span>Identified value</span></li>
-  <li><b>8</b><span>Sources tracked</span></li>
-</ul>
+<p class="build">
+ <span>LAST BUILD <strong><time datetime="2026-08-12">2026-08-12 06:00 CT</time></strong></span>
+ <span>NEXT BUILD <time datetime="2026-08-17">2026-08-17 06:00 CT</time>
+  · 8 SOURCES · 63 ITEMS · 1 SILENT</span>
+</p>
 
-<h2>Current activity</h2>
-<div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-08-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Request for Authorization to Submit Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Wisconsin Department of Natural Resources (WI-DNR) for FY2028 Lead Service Line (LSL) Loan Staff Recommendation: Requesting $30 million from WI-DNR for the year 2028 to cover the expenses of approximately 3,000 Lead Service Line Replacements (LSLRs) over two years Fiscal Note: To Approve with a Referral to Finance and Personnel Committee</p><div class="amt">$30,000,000</div>
-  <div class="meta">Record 0730-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-08-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Request for Authorization to Submit Intent to Apply (ITA) to the Wisconsin Department of Natural Resources (WI-DNR) for the 2028 Loan for Small Diameter Old Water Main Replacements Staff Recommendation: To Approve with a Referral to Finance and Personnel Committee Fiscal Note: SDW Loan Program (~2.85%). Tentative Loan Amount per year: $17 million to replace old water mains in concurrence with LSLRs</p><div class="amt">$17,000,000</div>
-  <div class="meta">Record 0731-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-08</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order No. 1 on Contract EqRa-001, 2026 Lead Service Line Replacement, Miller Pipeline (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $1,669,437.09, bringing the contract total to $16,933,416.91.</p><div class="amt">$16,933,417</div>
-  <div class="meta">Record 0626-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-08</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order No. 1 on Contract EqRa-002, 2026 Lead Service Line Replacement, Miller Pipeline (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $4,119,784.00, bringing the contract total to $13,538,400.</p><div class="amt">$13,538,400</div>
-  <div class="meta">Record 0627-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication relating to the Milwaukee Water Works coordination of lead service line replacements with the Milwaukee Health Department, per file number 251472.</p>
-  <div class="meta">Record 260529 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-06-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order No. 2 on Contract W-23-7, 42 Inch Water Main - Phase 3, Mound Avenue to Main Street, Super Excavators, Inc (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in an increase of $147,874.00, bringing the contract total to $18,368,234.00.</p><div class="amt">$18,368,234</div>
-  <div class="meta">Record 0547-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-15</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Bids Received: Friday, July 10, 2026, at 11:00 am. Ruben Drive Pump Station Replacement The Board of Public Works recommends that the low bid from Mid City Corporation in the amount of $2,081,600.00, be awarded.</p><div class="amt">$2,081,600</div>
-  <div class="meta">Record ID#26-04055 &middot;
-    Bid/RFP &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Scope of Engagement Re: Proposed Issuance of $5,637,072 City of Manitowoc (&quot;City&quot;) Taxable Private LSL Replacement Revenue Bonds, Series 2026 (Safe Drinking Water Loan; Project 5191-21)</p><div class="amt">$5,637,072</div>
-  <div class="meta">Record 26-0698 &middot;
-    Agreement &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-06</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Presentation from Manitowoc Public Utilities on the 2026 Lead Service Line Replacement Program</p>
-  <div class="meta">Record 26-0610 &middot;
-    Presentation &middot; Filed</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-07-10</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Approve the water main replacement unit price contract and 1% City administration fee totaling $946,055.64 for the Waukesha Water Utility’s portion of the City of Waukesha Public Works contract with Musson Brothers, Inc. for the Luke, Born, and Walton reconstruction project.</p><div class="amt">$946,056</div>
-  <div class="meta">Record ID#26-04027 &middot;
-    Action Item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-08-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order #2 on Contract W-25-6, STH 31 Water Main Replacement, A.W. Oakes &amp; Son (Contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in an increase of $564,758, bringing the total contract amount to $2,821,328.</p><div class="amt">$2,821,328</div>
-  <div class="meta">Record 0724-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-08-06</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Request Sponsored by Commissioner Jorgensen from Utility Director for Authorization to Submit CWFL Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Department of Natural Resources (DNR) for FY2028 Lift Station #1 Upgrade Staff Recommendation: To Approve Fiscal Note: N/A</p>
-  <div class="meta">Record 0710-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag hot">High</span>
-    <span>2026-06-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order No. 2 on Contract W-25-9, 2025 Water Main Replacement - Phase 3, Willkomm Excavating &amp; Grading, Inc. (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $3,308.00, bringing the total contract amount to $506,309.40.</p><div class="amt">$506,309</div>
-  <div class="meta">Record 0537-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-29</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">Authorizing the allocation of up to $1,300,000 of City Affordable Housing Funds to help the Community Development Authority finance energy efficiency improvements at Monona Shores Apartments and CDA 95-1 “The Reservoir” and authorizing the Mayor and the City Clerk to enter into Loan Agreements. (District 6, District 14)</p><div class="amt">$1,300,000</div>
-  <div class="meta">Record 94204 &middot;
-    Resolution &middot; Items Referred</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-06</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Bid Opening Results for Contract 2026-WW-SS-03, Sanitary Sewer Lining Staff Recommendation: Fiscal Note:</p>
-  <div class="meta">Record 0711-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-06-11</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Bid Opening Results for Contract #2026-WW-SS-01, 2026 Sanitary Sewer CCTV Project Staff Recommendation: To Approve Fiscal Note: Lowest responsive bid from National Power Rodding Corp. at $158,828.00, which will be taken from O&amp;M Budget. $120,000 Budgeted for 2026.</p><div class="amt">$158,828</div>
-  <div class="meta">Record 0555-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-04</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Amendment No. 1 for the 2026 Sanitary Sewer Master Plan</p>
-  <div class="meta">Record 26-0700 &middot;
-    Request &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-06</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of an Amendment to the Professional Services Agreement with Carollo for UV Disinfection System Replacement Staff Recommendation: To Approve Fiscal Note: Time and material, not to exceed $180,121.</p><div class="amt">$180,121</div>
-  <div class="meta">Record 0706-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-06</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Bid Opening Results for Contract 2026-WW-SS-02, Lift Station #10 Upgrades Staff Recommendation: Fiscal Note:</p>
-  <div class="meta">Record 0712-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-28</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication sponsored by Alder Harmon, submitting Change Order No. 2 to Contract 2025005 - 2025 Sanitary Sewer Main CIPP Linings, Visu-Sewer, Contractor. Staff Recommendation to the Public Works and Services Committee on 08.25.26: That Change Order No. 2 to Contract 2025005 - 2025 Sanitary Sewer Main CIPP Linings, Visu-Sewer, Contractor, be approved in the deduct amount of ($175,665.25). Fiscal Note: Funding for this change order is credited in following Org-Objects: ($166,246.50) 22640 57560 Sanitary Sewer ($3,698.75) 60484 57570 Storm Sewers ($5,720.00) 40102 57560 R.W.W.U. ($175,665.25) Total</p><div class="amt">$175,665</div>
-  <div class="meta">Record 0683-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-16</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication sponsored by Mayor Mason, requesting to permission that the Mayor and the City Clerk enter into a development agreement with the CDA and Neumann Companies, LLC, regarding the Giese School Property located at 5120 Byrd Ave. Recommendation of the Finance and Personnel Committee on 07-27-2026: That the Mayor and the City Clerk or their designees be authorized to enter into a development agreement with the Community Development Authority of the City of Racine and Neumann Companies, LLC, for the development of the Giese School Property located at 5120 Byrd Ave. Fiscal Note: TID 31 infrastructure funds would be used in the following ways and amounts: Approximately 2.3 million dollars for the installation of roads, utilities, sewers, water mains, street lighting, electric and gas utilities. 1.7 million dollars for down payment assistance on finished homes ($50,000 per lot). $300,000 of storm sewer infrastructure would also be funded by Account # 60484 - 59200 Storm Water Contribution.</p><div class="amt">$300,000</div>
-  <div class="meta">Record 0659-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-16</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Referral to review and possible action on an amendment of the Waukesha Municipal Code Chapter 29, Sewer Use and Wastewater Treatment for one-time sewer credit.</p>
-  <div class="meta">Record ID#26-04067 &middot;
-    Communications and Referrals &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-10</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Change Order #1 on Contract W-26-4, 2026 Water Main Replacement - Phase 4, Reesmans Excavating &amp; Grading, LLC (Contractor) Staff Recommendation: To Approve Fiscal Note: TBD</p>
-  <div class="meta">Record 0726-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-06-29</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and possible action on Contract Change Order No. 1 with Advance Construction, Inc. for the South Side Pump Station Consolidation project.</p>
-  <div class="meta">Record ID#26-03994 &middot;
-    Discussion and Recommendation &middot; Consent Agenda</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-31</span></div>
-  <div class="city">St. Paul, MN</div>
-  <p class="title">Pertaining to Professional Services Agreement with SEH to perform engineering services for the Hillcrest and West Side Reservoir Overflow Reconfiguration Project.</p>
-  <div class="meta">Record RES 26-1288 &middot;
-    Resolution &middot; Archived</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-07-08</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication sponsored by Mayor Mason for consideration of Developer&#x27;s Agreement for Settlement at Hood&#x27;s Creek - Addition 6, HCP2, LLC (Developer). Recommendation of the Waterworks Commission on 07-15-2026: To Approve with a Referral to the Finance and Personnel Committee. Recommendation of the Finance and Personnel Committee on 07-27-2026: To Approve. Fiscal Note: The developer pays all costs associated with the installation of the local water main, estimated at $251,000.</p><div class="amt">$251,000</div>
-  <div class="meta">Record 0629-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag mid">Notable</span>
-    <span>2026-08-11</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Report of Board of Public Works of 7/22/2026, of bids received for Televising Miscellaneous Sewers II - Project #WU-26-10; recommending awarding to Aqualis in the amount of $28,741.20</p><div class="amt">$28,741</div>
-  <div class="meta">Record 26-0732 &middot;
-    Report &middot; Consent Agenda</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication relating to semi-annual reporting to the Common Council by the Milwaukee Water Works and the Department of Public Works regarding lead service line replacements.</p>
-  <div class="meta">Record 260527 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-08-06</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Request by the Village of Caledonia for a Sanitary Sewer Extension at Harbor View Staff Recommendation: To Approve Fiscal Note: N/A</p>
-  <div class="meta">Record 0708-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-14</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication sponsored by Alder Harmon, submitting Change Order No. 2 to Contract 2025181 - Racine Uptown Green Infrastructure Project, A.W. Oakes &amp; Son, Inc., Contractor. Staff Recommendation to the Public Works and Services Committee on 07.28.26: That Change Order No. 2 to Contract 2025181 - Racine Uptown Green Infrastructure Project, A.W. Oakes &amp; Son, Inc., Contractor, be approved in the deduct amount of ($4,875.70). Fiscal Note: Funding for this change order is credited in following Org-Objects: 60484 57570 Storm Sewers.</p><div class="amt">$4,876</div>
-  <div class="meta">Record 0646-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-11</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Request by the Village of Mount Pleasant for a Sanitary Sewer Extension for Hoods Creek Addition 6 Staff Recommendation: To Approve Fiscal Note: N/A</p>
-  <div class="meta">Record 0553-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-01</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Sanitary Sewer Extension by S. Alverno Rd.</p>
-  <div class="meta">Record 26-0594 &middot;
-    Request &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-29</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">I-43 Industrial Park - Proposed Sanitary Sewer Extension Near Vits Dr. to Serve Kinzel Wood Products</p>
-  <div class="meta">Record 26-0577 &middot;
-    Request &middot; In Committee/Commission</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-13</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Approve of the water main extension and Developer’s Agreement for Country Crest Lane, at no cost to the Utility</p>
-  <div class="meta">Record ID#26-04044 &middot;
-    Action Item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-11</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Approve of the water main extension and Developer’s Agreement for Skyline Subdivision Phase II, at no cost to the Utility</p>
-  <div class="meta">Record ID#26-03904 &middot;
-    Action Item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-11</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Approve of the water main extension and Developer’s Agreement for Winterberry Phase II, at no cost to the Utility</p>
-  <div class="meta">Record ID#26-03905 &middot;
-    Action Item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-21</span></div>
-  <div class="city">St. Paul, MN</div>
-  <p class="title">Approving the City’s cost of providing Repair of Sanitary Sewer Service Line on Private Properties and setting date of City Council public hearing for September 16, 2026 to consider and levy the assessments against individual properties. (File No. SWRP2603, Assessment No. 263002)</p>
-  <div class="meta">Record RES 26-1216 &middot;
-    Resolution &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-21</span></div>
-  <div class="city">St. Paul, MN</div>
-  <p class="title">Ratifying the assessment for Repair of Sanitary Sewer Line on Private Properties. (File No. SWRP2603, Assessment No. 263002)</p>
-  <div class="meta">Record RES PH 26-176 &middot;
-    Resolution-Public Hearing &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-08-04</span></div>
-  <div class="city">Manitowoc, WI</div>
-  <p class="title">Request to fund Storm Sewer Repair on Easement at Waldo and Fleetwood Drive</p>
-  <div class="meta">Record 26-0704 &middot;
-    Request &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-16</span></div>
-  <div class="city">St. Paul, MN</div>
-  <p class="title">Approving Ordinance Permit 20250030501 for Storm Sewer Infrastructure installed by Snelling-Midway Redevelopment, LLC at the following locations on the United Village Project Site as defined in the “Development Agreement By and Between Housing and Redevelopment Authority of the City of Saint Paul and Snelling-Midway Redevelopment, LLC”: on Spruce Tree Avenue from Asbury Street to Snelling Avenue.</p>
-  <div class="meta">Record RES 26-1200 &middot;
-    Resolution &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication from the Department of Public Works and the Milwaukee Water Works relating to the implementation of dust control provisions in the execution of their contracts.</p>
-  <div class="meta">Record 260552 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-28</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">Authorizing electric service agreements for the purchase of backup generation service with Madison Gas &amp; Electric Company, including the installation of a standby generator, on Madison Water Utility facility sites</p>
-  <div class="meta">Record 94187 &middot;
-    Resolution &middot; Items Referred</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-28</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">Authorizing the Water Utility General Manager to enter into Interruptible Electric Service Agreements with Madison Gas &amp; Electric Co. at Water Utility Sites</p>
-  <div class="meta">Record 94188 &middot;
-    Resolution &middot; Items Referred</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-23</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">2025 Water Utility Financial Audit</p>
-  <div class="meta">Record 94132 &middot;
-    Presentation &middot; Presentation</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-08-12</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication from the Racine Water Utility Director and the City Attorney’s Office requesting to present a proposed settlement for the claim of Anne and Alvydas Arbas, in the amount of $31,312.67. Staff Recommendation: To Approve, Subject to the Common Council&#x27;s Approval to Pay Half of the Settlement Amount Fiscal Note: To be discussed.</p><div class="amt">$31,313</div>
-  <div class="meta">Record 0733-26 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-09</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Consideration of Wastewater Commission Directors Liability Insurance Policy Renewal Staff Recommendation: To Approve Fiscal Note: Insurance premium of $17,155, and $3,028 agreement fee.</p><div class="amt">$17,155</div>
-  <div class="meta">Record 0633-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-09</span></div>
-  <div class="city">Racine, WI</div>
-  <p class="title">Subject: Communication sponsored by Alder Jorgensen, requesting permission to apply for and accept the 2027 CVMIC Risk Reimbursement Program Grant. (Grant Control #00710) Recommendation of the Wastewater Commission on 07-15-2026: To Approve with a Referral to the Finance and Personnel Committee. Recommendation of the Finance and Personnel Committee on 07-27-2026: Approval to apply for and accept the 2027 CVMIC Risk Reimbursement Program Grant. Fiscal Note: Up to $10,000 for Water and Wastewater.(Grant Control #00710)</p><div class="amt">$10,000</div>
-  <div class="meta">Record 0635-26 &middot;
-    Communication &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Discuss negotiation strategies for the acquisition and disposal of real property including the Water Utility building.</p>
-  <div class="meta">Record ID#26-04099 &middot;
-    Closed Session &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-23</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Discussion of mitigation options for possible demolition of the Water Utility building at 445 W. Newhall Ave.</p>
-  <div class="meta">Record ID#26-04079 &middot;
-    Business item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-16</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and possible action on updates to the Waukesha Municipal Code 6.12 Snow and Ice Removal from Sidewalks, Curb Ramps, Bus Pads, and Fire Hydrants.</p>
-  <div class="meta">Record ID#26-04063 &middot;
-    Ordinance License Committee Report &middot; Second Reading</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-08</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and possible action on the sale of two unused Water Utility sites.</p>
-  <div class="meta">Record ID#26-04021 &middot;
-    New Business &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-07</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Surplus Land – Review and possible action on a proposal to declare a 1.986 acre parcel of City owned vacant land as surplus, the parcel, WAKT138999001, located in the Village of Waukesha along Big Bend road south of Mill Creek is no longer needed by the Waukesha Water Utility.</p>
-  <div class="meta">Record ID#26-04020 &middot;
-    Business item &middot; Passed</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-25</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Presentation by the Waukesha Water Utility on 445 W. Newhall Ave.</p>
-  <div class="meta">Record ID#26-03982 &middot;
-    Business item &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication from the Milwaukee Metropolitan Sewerage District and the Department of Public Works relating to the recently discovered blockage in a sewerage district discharge pipe.</p>
-  <div class="meta">Record 260510 &middot;
-    Communication &middot; In Committee</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-31</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication from the Milwaukee Metropolitan Sewerage District relating to its 2025 Annual Comprehensive Financial Report.</p>
-  <div class="meta">Record 260524 &middot;
-    Communication &middot; Placed On File</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-14</span></div>
-  <div class="city">Milwaukee, WI</div>
-  <p class="title">Communication from the Department of Public Works-Infrastructure Services Division relating to a Statement of Midyear Review of Financial Condition of the Sewer Maintenance Fund.</p>
-  <div class="meta">Record 260415 &middot;
-    Communication &middot; Placed On File</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-28</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">Approving Addendum No. 1 to Reiland Grove Stormwater Management, Contract No. 9722 (District 3)</p>
-  <div class="meta">Record 94176 &middot;
-    Resolution &middot; Council New Business</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-27</span></div>
-  <div class="city">Madison, WI</div>
-  <p class="title">Approving Addendum No. 2 to Westwind Phase 1 - Stormwater Management, Contract No. 9130 (District 1)</p>
-  <div class="meta">Record 94153 &middot;
-    Resolution &middot; Council New Business</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-08-11</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and act on the Consultant Contract for Stormwater Facility Vegetation Management Services for 2026.</p>
-  <div class="meta">Record ID#26-04183 &middot;
-    Discussion and Recommendation &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-07-01</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and possible action on the requests from Timothy Ryan, 1001 Fleetfoot Dr, Beth Schultz, 3827 Retzer Ct, Ruth Anne White, 2200 Summit Ave and Deborah Crawford, 1707 White Deer Trail, for one-time sewer credits.</p>
-  <div class="meta">Record ID#26-04008 &middot;
-    Discussion and Authorization re:   &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-06-29</span></div>
-  <div class="city">Waukesha, WI</div>
-  <p class="title">Review and possible action on the requests from Madeline Nowak, 101 Woodlark Ct and Vamsidhar Lolugu, 201 Jersey Cir, for one-time sewer credits.</p>
-  <div class="meta">Record ID#26-03995 &middot;
-    Discussion and Authorization re:   &middot; Agenda Ready</div>
-</div><div class="item">
-  <div class="top"><span class="tag low">Tracking</span>
-    <span>2026-05-22</span></div>
-  <div class="city">Milwaukee County, WI</div>
-  <p class="title">A resolution requesting the Wisconsin Legislative Audit Bureau to audit the Milwaukee Metropolitan Sewerage District and its contractor Veolia Water Milwaukee, LLC to ensure clean water for Milwaukee County (06/12/26 Meeting: Laid Over to the Call of the Chairperson)</p>
-  <div class="meta">Record 26-496 &middot;
-    Resolution &middot; Held in Committee</div>
+<section class="hero">
+ <div class="hero-grid">
+  <div>
+   <h1>Wisconsin water projects, months before they hit bid.</h1>
+   <p class="dek">Every water and wastewater item from municipal council records across 8 Wisconsin and upper-Midwest municipalities. Loan applications, facility plans, contract awards. The Monday digest is free, and stays free.</p>
+   <p class="pull">The deal is usually decided before the RFP is published.</p>
+  </div>
+  <div>
+   <p class="provenance">Items are drawn from published council and committee
+   records only. Nothing here is confidential, and nothing here is a
+   forecast — each entry is a document a municipality has already filed,
+   carrying its own public record number.</p>
+  </div>
+ </div>
+</section>
+
+<section class="figures">
+ <h2>Current set · in figures</h2>
+ <dl class="stats">
+  <div><dd>$91,921,881</dd><dt>Identified project value</dt></div>
+  <div><dd>63</dd><dt>Active items</dt></div>
+  <div><dd>8</dd><dt>Municipalities tracked</dt></div>
+  <div><dd>FY2028</dd><dt>Earliest funding year filed</dt></div>
+ </dl>
+ <p>Dollar figures are taken from the record itself. Where a record states
+ no amount, none is shown — nothing is estimated.</p>
+</section>
+
+<section class="records">
+ <div class="rec-head">
+  <h2>Records · week of <time datetime="2026-08-12">Aug 12, 2026</time></h2>
+  <p>63 shown · full list in Monday's email</p>
+ </div>
+ <div class="rows">
+  <div class="colhead"><span>Stage</span><span>Item · public record</span><span>Value</span></div>
+  <article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Subject: Request for Authorization to Submit Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Wisconsin Department of Natural Resources (WI-DNR) for FY2028 Lead Service Line (LSL) Loan Staff Recommendation: Requesting $30 million from WI-DNR for the year 2028 to cover the expenses of approximately 3,000 Lead Service Line Replacements (LSLRs) over two years Fiscal Note: To Approve with a Referral to Finance and Personnel Committee</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-10">AUG. 10</time> · RECORD 0730-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$30,000,000</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Subject: Request for Authorization to Submit Intent to Apply (ITA) to the Wisconsin Department of Natural Resources (WI-DNR) for the 2028 Loan for Small Diameter Old Water Main Replacements Staff Recommendation: To Approve with a Referral to Finance and Personnel Committee Fiscal Note: SDW Loan Program (~2.85%). Tentative Loan Amount per year: $17 million to replace old water mains in concurrence with LSLRs</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-10">AUG. 10</time> · RECORD 0731-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$17,000,000</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Consideration of Change Order No. 1 on Contract EqRa-001, 2026 Lead Service Line Replacement, Miller Pipeline (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $1,669,437.09, bringing the contract total to $16,933,416.91.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-08">JULY 8</time> · RECORD 0626-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$16,933,417</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Consideration of Change Order No. 1 on Contract EqRa-002, 2026 Lead Service Line Replacement, Miller Pipeline (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $4,119,784.00, bringing the contract total to $13,538,400.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-08">JULY 8</time> · RECORD 0627-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$13,538,400</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication relating to the Milwaukee Water Works coordination of lead service line replacements with the Milwaukee Health Department, per file number 251472.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 260529 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Bids Received: Friday, July 10, 2026, at 11:00 am. Ruben Drive Pump Station Replacement The Board of Public Works recommends that the low bid from Mid City Corporation in the amount of $2,081,600.00, be awarded.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-15">JULY 15</time> · RECORD ID#26-04055 · BID/RFP · PASSED</p>
+</div>
+<p class="amount">$2,081,600</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Scope of Engagement Re: Proposed Issuance of $5,637,072 City of Manitowoc (&quot;City&quot;) Taxable Private LSL Replacement Revenue Bonds, Series 2026 (Safe Drinking Water Loan; Project 5191-21)</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 26-0698 · AGREEMENT · AGENDA READY</p>
+</div>
+<p class="amount">$5,637,072</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Presentation from Manitowoc Public Utilities on the 2026 Lead Service Line Replacement Program</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-07-06">JULY 6</time> · RECORD 26-0610 · PRESENTATION · FILED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approve the water main replacement unit price contract and 1% City administration fee totaling $946,055.64 for the Waukesha Water Utility’s portion of the City of Waukesha Public Works contract with Musson Brothers, Inc. for the Luke, Born, and Walton reconstruction project.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-10">JULY 10</time> · RECORD ID#26-04027 · ACTION ITEM · AGENDA READY</p>
+</div>
+<p class="amount">$946,056</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Consideration of Change Order #2 on Contract W-25-6, STH 31 Water Main Replacement, A.W. Oakes &amp; Son (Contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in an increase of $564,758, bringing the total contract amount to $2,821,328.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-10">AUG. 10</time> · RECORD 0724-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$2,821,328</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Subject: Request Sponsored by Commissioner Jorgensen from Utility Director for Authorization to Submit CWFL Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Department of Natural Resources (DNR) for FY2028 Lift Station #1 Upgrade Staff Recommendation: To Approve Fiscal Note: N/A</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-06">AUG. 6</time> · RECORD 0710-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Consideration of Change Order No. 2 on Contract W-25-9, 2025 Water Main Replacement - Phase 3, Willkomm Excavating &amp; Grading, Inc. (contractor) Staff Recommendation: To Approve Fiscal Note: Contract change results in a decrease of $3,308.00, bringing the total contract amount to $506,309.40.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-06-10">JUNE 10</time> · RECORD 0537-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$506,309</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Authorizing the allocation of up to $1,300,000 of City Affordable Housing Funds to help the Community Development Authority finance energy efficiency improvements at Monona Shores Apartments and CDA 95-1 “The Reservoir” and authorizing the Mayor and the City Clerk to enter into Loan Agreements. (District 6, District 14)</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-29">JULY 29</time> · RECORD 94204 · RESOLUTION · ITEMS REFERRED</p>
+</div>
+<p class="amount">$1,300,000</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Bid Opening Results for Contract 2026-WW-SS-03, Sanitary Sewer Lining Staff Recommendation: Fiscal Note:</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-06">AUG. 6</time> · RECORD 0711-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Bid Opening Results for Contract #2026-WW-SS-01, 2026 Sanitary Sewer CCTV Project Staff Recommendation: To Approve Fiscal Note: Lowest responsive bid from National Power Rodding Corp. at $158,828.00, which will be taken from O&amp;M Budget. $120,000 Budgeted for 2026.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-06-11">JUNE 11</time> · RECORD 0555-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$158,828</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Amendment No. 1 for the 2026 Sanitary Sewer Master Plan</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-08-04">AUG. 4</time> · RECORD 26-0700 · REQUEST · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip design outlined">DESIGN</span><span class="sub">6–18 months out</span></p>
+<div>
+<h3>Subject: Consideration of an Amendment to the Professional Services Agreement with Carollo for UV Disinfection System Replacement Staff Recommendation: To Approve Fiscal Note: Time and material, not to exceed $180,121.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-06">AUG. 6</time> · RECORD 0706-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$180,121</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Bid Opening Results for Contract 2026-WW-SS-02, Lift Station #10 Upgrades Staff Recommendation: Fiscal Note:</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-06">AUG. 6</time> · RECORD 0712-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Communication sponsored by Alder Harmon, submitting Change Order No. 2 to Contract 2025005 - 2025 Sanitary Sewer Main CIPP Linings, Visu-Sewer, Contractor. Staff Recommendation to the Public Works and Services Committee on 08.25.26: That Change Order No. 2 to Contract 2025005 - 2025 Sanitary Sewer Main CIPP Linings, Visu-Sewer, Contractor, be approved in the deduct amount of ($175,665.25). Fiscal Note: Funding for this change order is credited in following Org-Objects: ($166,246.50) 22640 57560 Sanitary Sewer ($3,698.75) 60484 57570 Storm Sewers ($5,720.00) 40102 57560 R.W.W.U. ($175,665.25) Total</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-28">JULY 28</time> · RECORD 0683-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$175,665</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Communication sponsored by Mayor Mason, requesting to permission that the Mayor and the City Clerk enter into a development agreement with the CDA and Neumann Companies, LLC, regarding the Giese School Property located at 5120 Byrd Ave. Recommendation of the Finance and Personnel Committee on 07-27-2026: That the Mayor and the City Clerk or their designees be authorized to enter into a development agreement with the Community Development Authority of the City of Racine and Neumann Companies, LLC, for the development of the Giese School Property located at 5120 Byrd Ave. Fiscal Note: TID 31 infrastructure funds would be used in the following ways and amounts: Approximately 2.3 million dollars for the installation of roads, utilities, sewers, water mains, street lighting, electric and gas utilities. 1.7 million dollars for down payment assistance on finished homes ($50,000 per lot). $300,000 of storm sewer infrastructure would also be funded by Account # 60484 - 59200 Storm Water Contribution.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-16">JULY 16</time> · RECORD 0659-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$300,000</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Referral to review and possible action on an amendment of the Waukesha Municipal Code Chapter 29, Sewer Use and Wastewater Treatment for one-time sewer credit.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-16">JULY 16</time> · RECORD ID#26-04067 · COMMUNICATIONS AND REFERRALS · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Consideration of Change Order #1 on Contract W-26-4, 2026 Water Main Replacement - Phase 4, Reesmans Excavating &amp; Grading, LLC (Contractor) Staff Recommendation: To Approve Fiscal Note: TBD</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-10">AUG. 10</time> · RECORD 0726-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Review and possible action on Contract Change Order No. 1 with Advance Construction, Inc. for the South Side Pump Station Consolidation project.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-06-29">JUNE 29</time> · RECORD ID#26-03994 · DISCUSSION AND RECOMMENDATION · CONSENT AGENDA</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip design outlined">DESIGN</span><span class="sub">6–18 months out</span></p>
+<div>
+<h3>Pertaining to Professional Services Agreement with SEH to perform engineering services for the Hillcrest and West Side Reservoir Overflow Reconfiguration Project.</h3>
+<p class="meta"><span class="place">ST. PAUL, MINN.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD RES 26-1288 · RESOLUTION · ARCHIVED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Subject: Communication sponsored by Mayor Mason regarding a Resolution Authorizing the Issuance and Sale of Up to $XXXXX Taxable Waterworks System Revenue Bonds, Series 2026A, and Providing for Other Details and Covenants With Respect Thereto, and Approval of Related Financial Assistance Agreement Staff Recommendation: To Approve with a Referral to the Finance and Personnel Committee. That a Resolution Authorizing the Issuance and Sale of Up to $XXXX Taxable Waterworks System Revenue Bonds, Series 2026A, and Providing for Other Details and Covenants With Respect Thereto, and Approval of Related Financial Assistance Agreement, be approved. Fiscal Note: The Financial Assistance Agreement funded through the state Safe Drinking Water Loan Program is in the amount of $XXXX with a loan term of 20 years at a 0.250% interest rate. The loan total is offset by $XXXXX in principal forgiveness.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-12">AUG. 12</time> · RECORD 0737-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip planning filled">PLANNING</span><span class="sub">2+ years out</span></p>
+<div>
+<h3>Subject: Communication sponsored by Mayor Mason regarding a Resolution Authorizing the Issuance and Sale of Up to $XXXXX Taxable Waterworks System Revenue Bonds, Series 2026B, and Providing for Other Details and Covenants With Respect Thereto, and Approval of Related Financial Assistance Agreement Staff Recommendation: To Approve with a Referral to the Finance and Personnel Committee. That a Resolution Authorizing the Issuance and Sale of Up to $XXXX Taxable Waterworks System Revenue Bonds, Series 2026B, and Providing for Other Details and Covenants With Respect Thereto, and Approval of Related Financial Assistance Agreement, be approved. Fiscal Note: The Financial Assistance Agreement funded through the state Safe Drinking Water Loan Program is in the amount of $XXXX, with a loan term of 20 years at a 0.250% interest rate. The loan total is offset by $XXXXX in principal forgiveness.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-12">AUG. 12</time> · RECORD 0738-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Communication sponsored by Mayor Mason for consideration of Developer&#x27;s Agreement for Settlement at Hood&#x27;s Creek - Addition 6, HCP2, LLC (Developer). Recommendation of the Waterworks Commission on 07-15-2026: To Approve with a Referral to the Finance and Personnel Committee. Recommendation of the Finance and Personnel Committee on 07-27-2026: To Approve. Fiscal Note: The developer pays all costs associated with the installation of the local water main, estimated at $251,000.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-08">JULY 8</time> · RECORD 0629-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$251,000</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Report of Board of Public Works of 7/22/2026, of bids received for Televising Miscellaneous Sewers II - Project #WU-26-10; recommending awarding to Aqualis in the amount of $28,741.20</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-08-11">AUG. 11</time> · RECORD 26-0732 · REPORT · CONSENT AGENDA</p>
+</div>
+<p class="amount">$28,741</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication relating to semi-annual reporting to the Common Council by the Milwaukee Water Works and the Department of Public Works regarding lead service line replacements.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 260527 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Request by the Village of Caledonia for a Sanitary Sewer Extension at Harbor View Staff Recommendation: To Approve Fiscal Note: N/A</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-06">AUG. 6</time> · RECORD 0708-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip bidding filled">BIDDING</span><span class="sub">Active now</span></p>
+<div>
+<h3>Subject: Communication sponsored by Alder Harmon, submitting Change Order No. 2 to Contract 2025181 - Racine Uptown Green Infrastructure Project, A.W. Oakes &amp; Son, Inc., Contractor. Staff Recommendation to the Public Works and Services Committee on 07.28.26: That Change Order No. 2 to Contract 2025181 - Racine Uptown Green Infrastructure Project, A.W. Oakes &amp; Son, Inc., Contractor, be approved in the deduct amount of ($4,875.70). Fiscal Note: Funding for this change order is credited in following Org-Objects: 60484 57570 Storm Sewers.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-14">JULY 14</time> · RECORD 0646-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$4,876</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Request by the Village of Mount Pleasant for a Sanitary Sewer Extension for Hoods Creek Addition 6 Staff Recommendation: To Approve Fiscal Note: N/A</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-06-11">JUNE 11</time> · RECORD 0553-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Sanitary Sewer Extension by S. Alverno Rd.</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-07-01">JULY 1</time> · RECORD 26-0594 · REQUEST · PASSED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>I-43 Industrial Park - Proposed Sanitary Sewer Extension Near Vits Dr. to Serve Kinzel Wood Products</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-06-29">JUNE 29</time> · RECORD 26-0577 · REQUEST · IN COMMITTEE/COMMISSION</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approve of the water main extension and Developer’s Agreement for Country Crest Lane, at no cost to the Utility</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-13">JULY 13</time> · RECORD ID#26-04044 · ACTION ITEM · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approve of the water main extension and Developer’s Agreement for Skyline Subdivision Phase II, at no cost to the Utility</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-06-11">JUNE 11</time> · RECORD ID#26-03904 · ACTION ITEM · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approve of the water main extension and Developer’s Agreement for Winterberry Phase II, at no cost to the Utility</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-06-11">JUNE 11</time> · RECORD ID#26-03905 · ACTION ITEM · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approving the City’s cost of providing Repair of Sanitary Sewer Service Line on Private Properties and setting date of City Council public hearing for September 16, 2026 to consider and levy the assessments against individual properties. (File No. SWRP2603, Assessment No. 263002)</h3>
+<p class="meta"><span class="place">ST. PAUL, MINN.</span> — <time
+ datetime="2026-07-21">JULY 21</time> · RECORD RES 26-1216 · RESOLUTION · MAYOR&#x27;S OFFICE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Ratifying the assessment for Repair of Sanitary Sewer Line on Private Properties. (File No. SWRP2603, Assessment No. 263002)</h3>
+<p class="meta"><span class="place">ST. PAUL, MINN.</span> — <time
+ datetime="2026-07-21">JULY 21</time> · RECORD RES PH 26-176 · RESOLUTION-PUBLIC HEARING · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Request to fund Storm Sewer Repair on Easement at Waldo and Fleetwood Drive</h3>
+<p class="meta"><span class="place">MANITOWOC, WIS.</span> — <time
+ datetime="2026-08-04">AUG. 4</time> · RECORD 26-0704 · REQUEST · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approving Ordinance Permit 20250030501 for Storm Sewer Infrastructure installed by Snelling-Midway Redevelopment, LLC at the following locations on the United Village Project Site as defined in the “Development Agreement By and Between Housing and Redevelopment Authority of the City of Saint Paul and Snelling-Midway Redevelopment, LLC”: on Spruce Tree Avenue from Asbury Street to Snelling Avenue.</h3>
+<p class="meta"><span class="place">ST. PAUL, MINN.</span> — <time
+ datetime="2026-07-16">JULY 16</time> · RECORD RES 26-1200 · RESOLUTION · PASSED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication from the Department of Public Works and the Milwaukee Water Works relating to the implementation of dust control provisions in the execution of their contracts.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 260552 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Authorizing electric service agreements for the purchase of backup generation service with Madison Gas &amp; Electric Company, including the installation of a standby generator, on Madison Water Utility facility sites</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-28">JULY 28</time> · RECORD 94187 · RESOLUTION · ITEMS REFERRED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Authorizing the Water Utility General Manager to enter into Interruptible Electric Service Agreements with Madison Gas &amp; Electric Co. at Water Utility Sites</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-28">JULY 28</time> · RECORD 94188 · RESOLUTION · ITEMS REFERRED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>2025 Water Utility Financial Audit</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-23">JULY 23</time> · RECORD 94132 · PRESENTATION · PRESENTATION</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Communication from the Racine Water Utility Director and the City Attorney’s Office requesting to present a proposed settlement for the claim of Anne and Alvydas Arbas, in the amount of $31,312.67. Staff Recommendation: To Approve, Subject to the Common Council&#x27;s Approval to Pay Half of the Settlement Amount Fiscal Note: To be discussed.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-08-12">AUG. 12</time> · RECORD 0733-26 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount">$31,313</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Consideration of Wastewater Commission Directors Liability Insurance Policy Renewal Staff Recommendation: To Approve Fiscal Note: Insurance premium of $17,155, and $3,028 agreement fee.</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-09">JULY 9</time> · RECORD 0633-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$17,155</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Subject: Communication sponsored by Alder Jorgensen, requesting permission to apply for and accept the 2027 CVMIC Risk Reimbursement Program Grant. (Grant Control #00710) Recommendation of the Wastewater Commission on 07-15-2026: To Approve with a Referral to the Finance and Personnel Committee. Recommendation of the Finance and Personnel Committee on 07-27-2026: Approval to apply for and accept the 2027 CVMIC Risk Reimbursement Program Grant. Fiscal Note: Up to $10,000 for Water and Wastewater.(Grant Control #00710)</h3>
+<p class="meta"><span class="place">RACINE, WIS.</span> — <time
+ datetime="2026-07-09">JULY 9</time> · RECORD 0635-26 · COMMUNICATION · PASSED</p>
+</div>
+<p class="amount">$10,000</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Discuss negotiation strategies for the acquisition and disposal of real property including the Water Utility building.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD ID#26-04099 · CLOSED SESSION · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Discussion of mitigation options for possible demolition of the Water Utility building at 445 W. Newhall Ave.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-23">JULY 23</time> · RECORD ID#26-04079 · BUSINESS ITEM · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Review and possible action on updates to the Waukesha Municipal Code 6.12 Snow and Ice Removal from Sidewalks, Curb Ramps, Bus Pads, and Fire Hydrants.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-16">JULY 16</time> · RECORD ID#26-04063 · ORDINANCE LICENSE COMMITTEE REPORT · SECOND READING</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Review and possible action on the sale of two unused Water Utility sites.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-08">JULY 8</time> · RECORD ID#26-04021 · NEW BUSINESS · PASSED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Surplus Land – Review and possible action on a proposal to declare a 1.986 acre parcel of City owned vacant land as surplus, the parcel, WAKT138999001, located in the Village of Waukesha along Big Bend road south of Mill Creek is no longer needed by the Waukesha Water Utility.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-07">JULY 7</time> · RECORD ID#26-04020 · BUSINESS ITEM · PASSED</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Presentation by the Waukesha Water Utility on 445 W. Newhall Ave.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-06-25">JUNE 25</time> · RECORD ID#26-03982 · BUSINESS ITEM · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication from the Milwaukee Metropolitan Sewerage District and the Department of Public Works relating to the recently discovered blockage in a sewerage district discharge pipe.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 260510 · COMMUNICATION · IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication from the Milwaukee Metropolitan Sewerage District relating to its 2025 Annual Comprehensive Financial Report.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-31">JULY 31</time> · RECORD 260524 · COMMUNICATION · PLACED ON FILE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Communication from the Department of Public Works-Infrastructure Services Division relating to a Statement of Midyear Review of Financial Condition of the Sewer Maintenance Fund.</h3>
+<p class="meta"><span class="place">MILWAUKEE, WIS.</span> — <time
+ datetime="2026-07-14">JULY 14</time> · RECORD 260415 · COMMUNICATION · PLACED ON FILE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approving Addendum No. 1 to Reiland Grove Stormwater Management, Contract No. 9722 (District 3)</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-28">JULY 28</time> · RECORD 94176 · RESOLUTION · COUNCIL NEW BUSINESS</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Approving Addendum No. 2 to Westwind Phase 1 - Stormwater Management, Contract No. 9130 (District 1)</h3>
+<p class="meta"><span class="place">MADISON, WIS.</span> — <time
+ datetime="2026-07-27">JULY 27</time> · RECORD 94153 · RESOLUTION · COUNCIL NEW BUSINESS</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Review and act on the Consultant Contract for Stormwater Facility Vegetation Management Services for 2026.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-08-11">AUG. 11</time> · RECORD ID#26-04183 · DISCUSSION AND RECOMMENDATION · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Review and possible action on the requests from Timothy Ryan, 1001 Fleetfoot Dr, Beth Schultz, 3827 Retzer Ct, Ruth Anne White, 2200 Summit Ave and Deborah Crawford, 1707 White Deer Trail, for one-time sewer credits.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-07-01">JULY 1</time> · RECORD ID#26-04008 · DISCUSSION AND AUTHORIZATION RE:   · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>Review and possible action on the requests from Madeline Nowak, 101 Woodlark Ct and Vamsidhar Lolugu, 201 Jersey Cir, for one-time sewer credits.</h3>
+<p class="meta"><span class="place">WAUKESHA, WIS.</span> — <time
+ datetime="2026-06-29">JUNE 29</time> · RECORD ID#26-03995 · DISCUSSION AND AUTHORIZATION RE:   · AGENDA READY</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article><article>
+<p><span class="chip tracking outlined">TRACKING</span></p>
+<div>
+<h3>A resolution requesting the Wisconsin Legislative Audit Bureau to audit the Milwaukee Metropolitan Sewerage District and its contractor Veolia Water Milwaukee, LLC to ensure clean water for Milwaukee County (06/12/26 Meeting: Laid Over to the Call of the Chairperson)</h3>
+<p class="meta"><span class="place">MILWAUKEE COUNTY, WIS.</span> — <time
+ datetime="2026-05-22">MAY 22</time> · RECORD 26-496 · RESOLUTION · HELD IN COMMITTEE</p>
+</div>
+<p class="amount none">NO AMOUNT IN RECORD</p>
+</article>
+ </div>
+</section>
+
+<div class="sub-block">
+ <p>Monday's digest, by email.</p>
+ <p class="fine">Free, and stays free. Every Monday. Unsubscribe anytime.</p>
+ <form action="#" method="post">
+  <label for="e" hidden>Email address</label>
+  <input id="e" name="email" type="email" placeholder="Email address" required>
+  <button type="submit">Subscribe</button>
+ </form>
 </div>
 
-<div class="cta">
-  <h3>Get this by email, weekly</h3>
-  <p>New items only, every Monday. Free.</p>
-  <a href="#signup">Subscribe</a>
+<div class="two">
+ <section>
+  <h2>Coverage · 8 sources</h2>
+  <p class="lede">If a municipality isn't on this list, we're not watching it.</p>
+  <table><thead><tr><th scope="col">Municipality</th><th scope="col">Source</th>
+  <th scope="col">Records</th></tr></thead><tbody><tr><td>Madison, WI</td><td>madison</td><td>Council &amp; committee</td></tr><tr><td>Manitowoc, WI</td><td>manitowoc</td><td>Council &amp; committee</td></tr><tr><td>Milwaukee County, WI</td><td>milwaukeecounty</td><td>Council &amp; committee</td></tr><tr><td>Milwaukee, WI</td><td>milwaukee</td><td>Council &amp; committee</td></tr><tr><td>Minneapolis, MN</td><td>minneapolismn</td><td>Council &amp; committee</td></tr><tr><td>Racine, WI</td><td>racine</td><td>Council &amp; committee</td></tr><tr><td>St. Paul, MN</td><td>stpaul</td><td>Council &amp; committee</td></tr><tr><td>Waukesha, WI</td><td>waukesha</td><td>Council &amp; committee</td></tr></tbody></table>
+ </section>
+ <section>
+  <h2>Method</h2>
+  <ol>
+   <li>Records are retrieved from public municipal legislative records via
+   the Legistar public API.</li>
+   <li>Loan applications, facility plans and capital budget amendments rank
+   highest because they surface earliest.</li>
+   <li>Completed acceptances, final payments and appointments are excluded.</li>
+   <li>Every item carries a public record identifier and can be verified
+   independently.</li>
+  </ol>
+ </section>
 </div>
-
-<h2>Coverage</h2>
-<p style="font-size:14px;color:#5d7186;margin:0 0 6px">
-We publish exactly which municipalities are tracked. If it is not listed
-here, we are not watching it.</p>
-<table><thead><tr><th>Municipality</th><th>Source ID</th>
-<th>Records</th></tr></thead><tbody><tr><td>Madison, WI</td><td>madison</td><td>Council + committee records</td></tr><tr><td>Manitowoc, WI</td><td>manitowoc</td><td>Council + committee records</td></tr><tr><td>Milwaukee County, WI</td><td>milwaukeecounty</td><td>Council + committee records</td></tr><tr><td>Milwaukee, WI</td><td>milwaukee</td><td>Council + committee records</td></tr><tr><td>Minneapolis, MN</td><td>minneapolismn</td><td>Council + committee records</td></tr><tr><td>Racine, WI</td><td>racine</td><td>Council + committee records</td></tr><tr><td>St. Paul, MN</td><td>stpaul</td><td>Council + committee records</td></tr><tr><td>Waukesha, WI</td><td>waukesha</td><td>Council + committee records</td></tr></tbody></table>
-
-<h2>Method</h2>
-<p style="font-size:14px">Items are pulled from public municipal
-legislative records via the Legistar public API, then scored for
-procurement relevance. Contract awards, capital budget amendments,
-engineering service agreements, and facility plans rank highest.
-Completed project acceptances, appointments, and routine reports are
-excluded. Every item cites its public record identifier and can be
-verified independently.</p>
 
 <footer>
-  <strong>Wisconsin Water Signals</strong> &middot; Compiled from public
-  records. Not affiliated with any municipality or agency.<br>
-  Source: municipal council legislative records, retrieved
-  2026-08-12.
+ <div><strong>Wisconsin Water Signals</strong>Alton, Illinois</div>
+ <div><strong>Contact</strong>Tyler Toenyes, editor<br>
+  <a href="tel:+13142674194">(314) 267-4194</a></div>
+ <div>Compiled from public records. Not affiliated with any municipality
+  or agency.</div>
 </footer>
 
-</div></body></html>
+</main></body></html>
