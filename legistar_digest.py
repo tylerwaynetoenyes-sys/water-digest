@@ -42,7 +42,10 @@ CITIES: dict[str, str] = {
     "madison": "Madison, WI",
     "racine": "Racine, WI",
     # --- Adjacent, confirmed ---
-    "stpaul": "St. Paul, MN",
+    "stpaul": "St. Paul, MN", "waukesha": "Waukesha, WI",
+    "manitowoc": "Manitowoc, WI",
+    "milwaukeecounty": "Milwaukee County, WI",
+    "minneapolismn": "Minneapolis, MN",
     # Run `python ops.py coverage --candidates wi_candidates.txt` to find
     # the rest. Confirmed NOT working under the obvious code: chicago,
     # evanston, greenbay, minneapolis — they need a different client code
