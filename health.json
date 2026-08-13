@@ -1,6 +1,6 @@
 {
   "madison": {
-    "empty_runs": 4,
+    "empty_runs": 5,
     "ever_produced": true,
     "last_hit": "2026-08-12"
   },
@@ -15,12 +15,12 @@
     "last_hit": "2026-08-13"
   },
   "milwaukeecounty": {
-    "empty_runs": 4,
+    "empty_runs": 5,
     "ever_produced": true,
     "last_hit": "2026-08-12"
   },
   "minneapolismn": {
-    "empty_runs": 4,
+    "empty_runs": 5,
     "ever_produced": false,
     "last_hit": null
   },
