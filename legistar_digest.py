@@ -48,19 +48,12 @@ CITIES: dict[str, str] = {
 }
 
 # ---------------------------------------------------------------------------
-# Signal scoring v2 — rewritten after reviewing 26 real Wisconsin items.
+# Signal scoring v3 — tuned against the first 24 real items that shipped.
 #
-# v1 let procurement words qualify on their own. A public library
-# renovation mentioning "awarding" and "Study Room" scored 19 and ranked
-# 4th in a water digest. One item like that costs a subscriber's trust.
-#
-# v2 splits keywords in two:
 #   DOMAIN — water/sewer subject matter. At least one is REQUIRED.
 #   STAGE  — position in the buying cycle. Boosts only, never qualifies.
 #
 # Tune these against customer feedback. This block is the product.
-#
-# DOMAIN — at least one required. This is the gate.
 # ---------------------------------------------------------------------------
 DOMAIN = {
     # highest intent
@@ -96,8 +89,12 @@ STAGE = {
     "request for proposals": 7, "notice to bidders": 8,
     "bid opening": 6, "bids received": 6, "awarding": 6,         # imminent
     "award of contract": 6, "capital improvement": 4,
-    "change order": 3, "appropriation": 3, "upgrade": 4,
-    "replacement": 4, "rehabilitation": 5, "expansion": 5,
+    "change order": 3, "appropriation": 3,
+    "rehabilitation": 5, "expansion": 5,
+    # NB: "replacement" and "upgrade" were here and were wrong. They are
+    # project *descriptors* ("water main replacement"), not buying stages.
+    # Their presence let a purely informational Milwaukee communication
+    # register a stage hit and dodge the informational damper.
 }
 
 # ---------------------------------------------------------------------------
@@ -112,13 +109,47 @@ NEGATIVE = {
     "receive and file": -12, "annual report": -12,
     "household hazardous waste": -20, "billing module": -20,
     "public library": -40,
+    # --- found in the first live digest ---
+    "settlement": -30, "claim of": -30, "city attorney": -25,
+    "dust control": -35, "vegetation management": -35,
+    "comprehensive financial report": -30, "financial report": -25,
+    "negotiation strategies": -35, "disposal of real property": -35,
+    "closed session": -30, "semi-annual reporting": -30,
+    "relating to its": -20,          # Milwaukee's phrasing for FYI items
+    "blockage": -20,
 }
+
+# An informational communication that merely *mentions* water work is not a
+# lead. Milwaukee files a lot of these; they scored high purely on keyword
+# density. Damp them unless a real procurement stage is also present.
+INFORMATIONAL = ("communication relating to", "communication from the",
+                 "relating to the implementation", "providing a review",
+                 "reporting to the common council")
 
 # "$30 million" must not parse as $30. That bug understated the single
 # biggest item in the first real digest by six orders of magnitude.
 MONEY = re.compile(
     r"\$\s?([\d,]+(?:\.\d+)?)\s*(million|billion|m\b|bn\b)?", re.I)
 MULT = {"million": 1e6, "m": 1e6, "billion": 1e9, "bn": 1e9}
+
+
+# ---------------------------------------------------------------------------
+# Title cleanup. Municipal clerks paste whole staff reports into the title
+# field: "Subject: ... Staff Recommendation: ... Fiscal Note: ...". The
+# useful sentence is the first one. Everything after the first boilerplate
+# marker is procedural and makes the digest unreadable.
+# ---------------------------------------------------------------------------
+BOILERPLATE = re.compile(
+    r"\s*(Staff Recommendation:|Fiscal Note:|Recommendation:"
+    r"|Staff Report:|Background:|Analysis:).*$", re.I | re.S)
+LEAD_IN = re.compile(r"^\s*(Subject:|Re:|RE:|SUBJECT:)\s*")
+
+
+def clean_title(t: str) -> str:
+    t = LEAD_IN.sub("", t or "")
+    t = BOILERPLATE.sub("", t)
+    t = " ".join(t.split()).rstrip(" .,;:-")
+    return t + "." if t and t[-1] not in ".?!)" else t
 
 
 def biggest_amount(text: str):
@@ -150,6 +181,10 @@ def score(title: str, matter_type: str = "") -> tuple[int, list[str]]:
     for k, w in NEGATIVE.items():
         if k in low:
             pts += w
+
+    # Informational filings mention the work without being the work.
+    if any(p in low for p in INFORMATIONAL) and not stage_hits:
+        pts -= 18
 
     amt = biggest_amount(title)
     if amt:
@@ -216,7 +251,10 @@ def collect(cities: dict[str, str], days: int, floor: int = 6) -> list[Signal]:
                 city=label,
                 client=client,
                 file_no=m.get("MatterFile", ""),
-                title=" ".join(title.split()),
+                # Display the cleaned title, but score and extract the
+                # amount from the RAW one — the dollar figure usually lives
+                # inside the "Fiscal Note:" boilerplate we strip.
+                title=clean_title(title),
                 intro_date=(m.get("MatterIntroDate") or "")[:10],
                 matter_type=m.get("MatterTypeName", ""),
                 status=m.get("MatterStatusName", ""),
