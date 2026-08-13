@@ -1,6 +1,6 @@
 {
   "madison": {
-    "empty_runs": 5,
+    "empty_runs": 6,
     "ever_produced": true,
     "last_hit": "2026-08-12"
   },
@@ -10,17 +10,17 @@
     "last_hit": "2026-08-13"
   },
   "milwaukee": {
-    "empty_runs": 0,
+    "empty_runs": 1,
     "ever_produced": true,
     "last_hit": "2026-08-13"
   },
   "milwaukeecounty": {
-    "empty_runs": 5,
+    "empty_runs": 6,
     "ever_produced": true,
     "last_hit": "2026-08-12"
   },
   "minneapolismn": {
-    "empty_runs": 5,
+    "empty_runs": 6,
     "ever_produced": false,
     "last_hit": null
   },
@@ -35,7 +35,7 @@
     "last_hit": "2026-08-13"
   },
   "waukesha": {
-    "empty_runs": 0,
+    "empty_runs": 1,
     "ever_produced": true,
     "last_hit": "2026-08-13"
   }
