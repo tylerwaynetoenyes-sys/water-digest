@@ -71,7 +71,18 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
                   days: int = 14, unsubscribe: str = "#",
                   editor: str = "Tyler Toenyes",
                   phone: str = "(314) 267-4194",
-                  place: str = "Alton, Illinois") -> str:
+                  place: str = "Alton, Illinois",
+                  fragment: bool = False) -> str:
+    """
+    fragment=True returns the inner content only, with no <!DOCTYPE>,
+    <html>, <head> or <body>.
+
+    Buttondown wraps whatever you send inside its own template. Posting a
+    complete HTML document into a template slot produces nested <html>
+    tags, which Outlook in particular renders unpredictably. Send the
+    fragment to Buttondown; keep the full document for local preview and
+    for any provider that expects a standalone file.
+    """
     sigs = sorted(signals, key=lambda s: -s.score)
     total = sum(s.amount for s in sigs if s.amount)
     today = dt.date.today()
@@ -98,13 +109,8 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
         f'<tr><td style="padding:26px 0;font:400 17px/1.5 {SANS};'
         f'color:{P["secondary"]};">No qualifying activity this period.</td></tr>')
 
-    return f"""<!DOCTYPE html>
-<html><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{territory} Water Signals</title></head>
-<body style="margin:0;padding:0;background:{P['surface']};">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0"
- border="0" style="background:{P['surface']};padding:30px 12px;">
+    inner = f"""<table role="presentation" width="100%" cellpadding="0"
+ cellspacing="0" border="0" style="background:{P['surface']};padding:30px 12px;">
 <tr><td align="center">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
  style="width:600px;max-width:100%;background:{P['bg']};">
@@ -167,8 +173,15 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
  </table>
 
 </td></tr></table>
-</td></tr></table>
-</body></html>"""
+</td></tr></table>"""
+
+    if fragment:
+        return inner
+    return (f'<!DOCTYPE html>\n<html><head><meta charset="utf-8">\n'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+            f'<title>{territory} Water Signals</title></head>\n'
+            f'<body style="margin:0;padding:0;background:{P["surface"]};">\n'
+            f'{inner}\n</body></html>')
 
 
 def to_plaintext(signals: Iterable, territory: str = "Wisconsin",
