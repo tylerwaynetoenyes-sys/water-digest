@@ -13,7 +13,7 @@ anyone pays you:
 
 Usage:
     python ops.py coverage --candidates cities.txt   # what's reachable?
-    python ops.py run                                # dedup'd digest + health
+    python ops.py run                                # dedup'd digest + draft
     python ops.py health                             # health report only
 """
 
@@ -200,25 +200,52 @@ def cmd_run(args) -> None:
     print(f"{len(fresh)} NEW signals ({len(sigs)} total in window) → {out}",
           file=sys.stderr)
 
-    if args.email_to and os.environ.get("RESEND_API_KEY"):
-        send_email(args.email_to, md)
+    if not args.no_send:
+        send_email(fresh)
 
 
-def send_email(to: str, markdown_body: str) -> None:
-    """Minimal Resend send. Free tier covers early customers."""
-    subject = f"Water & wastewater signals — {dt.date.today():%b %d}"
+def send_email(sigs, subject: str | None = None) -> None:
+    """
+    Create the issue in Buttondown.
+
+    Defaults to a DRAFT, not a send. Two reasons, and both are the right
+    call regardless of tooling: for the first ten subscribers you want to
+    read every digest before it goes out — that is how the keyword weights
+    get tuned — and a draft makes a bad week visible instead of mailed.
+
+    Flip the repo variable BUTTONDOWN_STATUS to "about_to_send" when you
+    are ready for it to send unattended.
+    """
+    api_key = os.environ.get("BUTTONDOWN_API_KEY")
+    if not api_key:
+        print("no BUTTONDOWN_API_KEY — skipping send", file=sys.stderr)
+        return
+
+    from email_template import to_email_html   # local import: optional dep
+
+    status = os.environ.get("BUTTONDOWN_STATUS", "draft")
+    subject = subject or (
+        f"Wisconsin water signals — {dt.date.today():%b %-d}")
+    # fragment=True: Buttondown wraps this in its own template, so we must
+    # not hand it a complete <html> document.
+    body = to_email_html(sigs, "Wisconsin", 14,
+                         unsubscribe="{{ unsubscribe_url }}", fragment=True)
+
     r = requests.post(
-        "https://api.resend.com/emails",
-        headers={"Authorization": f"Bearer {os.environ['RESEND_API_KEY']}"},
-        json={
-            "from": os.environ.get("DIGEST_FROM", "digest@yourdomain.com"),
-            "to": [t.strip() for t in to.split(",")],
-            "subject": subject,
-            "text": markdown_body,
-        },
-        timeout=30,
+        "https://api.buttondown.com/v1/emails",
+        headers={"Authorization": f"Token {api_key}",
+                 "Content-Type": "application/json"},
+        json={"subject": subject, "body": body, "status": status},
+        timeout=45,
     )
-    print(f"email: HTTP {r.status_code}", file=sys.stderr)
+    if r.status_code in (200, 201):
+        print(f"buttondown: {status} created ({r.status_code})",
+              file=sys.stderr)
+    else:
+        # Print the body — if the API shape has drifted this is what tells
+        # you exactly how, rather than a silent failure.
+        print(f"buttondown: HTTP {r.status_code} — {r.text[:400]}",
+              file=sys.stderr)
 
 
 # ---------------------------------------------------------------------------
@@ -234,7 +261,8 @@ def main() -> None:
     r.add_argument("--days", type=int, default=14)
     r.add_argument("--floor", type=int, default=6)
     r.add_argument("-o", "--out", default="digest.md")
-    r.add_argument("--email-to", default=None)
+    r.add_argument("--no-send", action="store_true",
+                   help="build the digest but do not touch Buttondown")
     r.set_defaults(func=cmd_run)
 
     h = sub.add_parser("health")
