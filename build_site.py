@@ -129,6 +129,8 @@ ol li::before{{content:"0" counter(m);position:absolute;left:0;
 .sub-block p{{font-size:19px;font-weight:600;margin-bottom:14px;color:var(--ink)}}
 .sub-block .fine{{font-size:16px;font-weight:400;color:var(--secondary);
  margin-bottom:18px}}
+.attrib{{margin-top:14px;font-size:15px;font-weight:400}}
+.attrib a{{color:var(--secondary);text-decoration:none}}
 form{{display:flex;gap:10px;flex-wrap:wrap}}
 input{{flex:1 1 260px;font:400 17px {SANS};padding:13px 15px;
  border:1px solid var(--line-hard);background:var(--bg);color:var(--ink)}}
@@ -177,7 +179,8 @@ def _row(s) -> str:
 def build(signals: Iterable, territory: str = "Wisconsin",
           coverage: dict[str, str] | None = None, silent: int = 0,
           editor: str = "Tyler Toenyes", phone: str = "(314) 267-4194",
-          place: str = "Alton, Illinois") -> str:
+          place: str = "Alton, Illinois",
+          handle: str = "Tyler_T") -> str:
     sigs = sorted(signals, key=lambda s: -s.score)
     coverage = coverage or {}
     total = sum(s.amount for s in sigs if s.amount)
@@ -300,11 +303,16 @@ def build(signals: Iterable, territory: str = "Wisconsin",
 <div class="sub-block">
  <p>Monday's digest, by email.</p>
  <p class="fine">Free, and stays free. Every Monday. Unsubscribe anytime.</p>
- <form action="#" method="post">
-  <label for="e" hidden>Email address</label>
-  <input id="e" name="email" type="email" placeholder="Email address" required>
+ <form action="https://buttondown.com/api/emails/embed-subscribe/{handle}"
+  method="post" class="embeddable-buttondown-form" target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/{handle}','popupwindow')">
+  <label for="bd-email" hidden>Email address</label>
+  <input id="bd-email" name="email" type="email"
+   placeholder="Email address" required>
   <button type="submit">Subscribe</button>
  </form>
+ <p class="attrib"><a href="https://buttondown.com/refer/{handle}"
+  target="_blank" rel="noopener">Powered by Buttondown</a></p>
 </div>
 
 <div class="two">
