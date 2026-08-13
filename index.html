@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light dark">
 <title>Wisconsin Water &amp; Wastewater Project Tracker</title>
 <meta name="description" content="63 active water and wastewater capital projects across 8 Wisconsin municipalities. $91,921,881 identified. Rebuilt weekly from public council records.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Wisconsin Municipal Water and Wastewater Project Tracker", "description": "63 active water and wastewater capital projects across 8 Wisconsin and upper-Midwest municipalities, representing $91,921,881 in identified appropriations. Compiled weekly from public municipal legislative records via the Legistar public API.", "temporalCoverage": "2026/2026-08-12", "spatialCoverage": {"@type": "Place", "name": "Wisconsin"}, "isAccessibleForFree": true, "dateModified": "2026-08-12", "creator": {"@type": "Person", "name": "Tyler Toenyes"}, "publisher": {"@type": "Organization", "name": "Wisconsin Water Signals"}, "variableMeasured": ["project value", "municipality", "procurement stage", "record identifier"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Wisconsin Municipal Water and Wastewater Project Tracker", "description": "63 active water and wastewater capital projects across 8 Wisconsin and upper-Midwest municipalities, representing $91,921,881 in identified appropriations. Compiled weekly from public municipal legislative records via the Legistar public API.", "temporalCoverage": "2026/2026-08-13", "spatialCoverage": {"@type": "Place", "name": "Wisconsin"}, "isAccessibleForFree": true, "dateModified": "2026-08-13", "creator": {"@type": "Person", "name": "Tyler Toenyes"}, "publisher": {"@type": "Organization", "name": "Wisconsin Water Signals"}, "variableMeasured": ["project value", "municipality", "procurement stage", "record identifier"]}</script>
 <style>
 :root{--bg:#ffffff;--surface:#f7f8f9;--ink:#17191c;--body:#2c3138;--secondary:#565d68;--line:rgba(23,25,28,.09);--line-soft:rgba(23,25,28,.07);--line-hard:rgba(23,25,28,.22);--planning:#33456b;--design:#1f5a66;--bidding:#8a4b1f;--on-fill:#ffffff;}
 @media (prefers-color-scheme:dark){:root{--bg:#0e1113;--surface:#171b1e;--ink:#e8ebee;--body:#c6ced6;--secondary:#9aa4af;--line:rgba(255,255,255,.11);--line-soft:rgba(255,255,255,.08);--line-hard:rgba(255,255,255,.24);--planning:#8fa8d8;--design:#79b8c4;--bidding:#d99a72;--on-fill:#0e1113;}}
@@ -108,6 +108,8 @@ ol li::before{content:"0" counter(m);position:absolute;left:0;
 .sub-block p{font-size:19px;font-weight:600;margin-bottom:14px;color:var(--ink)}
 .sub-block .fine{font-size:16px;font-weight:400;color:var(--secondary);
  margin-bottom:18px}
+.attrib{margin-top:14px;font-size:15px;font-weight:400}
+.attrib a{color:var(--secondary);text-decoration:none}
 form{display:flex;gap:10px;flex-wrap:wrap}
 input{flex:1 1 260px;font:400 17px -apple-system,'Segoe UI','Helvetica Neue',Arial,sans-serif;padding:13px 15px;
  border:1px solid var(--line-hard);background:var(--bg);color:var(--ink)}
@@ -148,7 +150,7 @@ footer strong{display:block;color:var(--ink);font-weight:600}
 </header>
 
 <p class="build">
- <span>LAST BUILD <strong><time datetime="2026-08-12">2026-08-12 06:00 CT</time></strong></span>
+ <span>LAST BUILD <strong><time datetime="2026-08-13">2026-08-13 06:00 CT</time></strong></span>
  <span>NEXT BUILD <time datetime="2026-08-17">2026-08-17 06:00 CT</time>
   · 8 SOURCES · 63 ITEMS · 1 SILENT</span>
 </p>
@@ -183,7 +185,7 @@ footer strong{display:block;color:var(--ink);font-weight:600}
 
 <section class="records">
  <div class="rec-head">
-  <h2>Records · week of <time datetime="2026-08-12">Aug 12, 2026</time></h2>
+  <h2>Records · week of <time datetime="2026-08-13">Aug 13, 2026</time></h2>
   <p>63 shown · full list in Monday's email</p>
  </div>
  <div class="rows">
@@ -699,11 +701,16 @@ footer strong{display:block;color:var(--ink);font-weight:600}
 <div class="sub-block">
  <p>Monday's digest, by email.</p>
  <p class="fine">Free, and stays free. Every Monday. Unsubscribe anytime.</p>
- <form action="#" method="post">
-  <label for="e" hidden>Email address</label>
-  <input id="e" name="email" type="email" placeholder="Email address" required>
+ <form action="https://buttondown.com/api/emails/embed-subscribe/Tyler_T"
+  method="post" class="embeddable-buttondown-form" target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/Tyler_T','popupwindow')">
+  <label for="bd-email" hidden>Email address</label>
+  <input id="bd-email" name="email" type="email"
+   placeholder="Email address" required>
   <button type="submit">Subscribe</button>
  </form>
+ <p class="attrib"><a href="https://buttondown.com/refer/Tyler_T"
+  target="_blank" rel="noopener">Powered by Buttondown</a></p>
 </div>
 
 <div class="two">
