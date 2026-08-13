@@ -20,9 +20,20 @@ from __future__ import annotations
 import datetime as dt
 from typing import Iterable
 
-from design import LIGHT as P, SANS, stage_of, money, dateline
+from design import LIGHT as P, stage_of, money, dateline
 
-MONO = "Consolas,'Courier New',monospace"
+# Gmail clips messages over ~102KB with "[Message clipped]", which would cut
+# the footer and the unsubscribe link. Capping is also the better product
+# decision: a scannable email that ends with a reason to click through beats
+# an exhaustive one nobody finishes.
+MAX_ITEMS = 12
+TRACKER_URL = "https://tylerwaynetoenyes-sys.github.io/water-digest/"
+
+# Deliberately shorter than design.SANS. This string is repeated ~60 times
+# in a single email; the long stack cost 3.5KB on its own. Every client
+# that matters resolves these three.
+SANS = "-apple-system,'Segoe UI',Arial,sans-serif"
+MONO = "Consolas,monospace"
 
 
 def _chip(key: str, label: str, shape: str) -> str:
@@ -84,10 +95,12 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
     for any provider that expects a standalone file.
     """
     sigs = sorted(signals, key=lambda s: -s.score)
-    total = sum(s.amount for s in sigs if s.amount)
+    total = sum(s.amount for s in sigs if s.amount)   # total across ALL items
+    n_all = len(sigs)
+    sigs = sigs[:MAX_ITEMS]
     today = dt.date.today()
     nxt = today + dt.timedelta(days=(7 - today.weekday()) % 7 or 7)
-    quiet = len(sigs) < 8
+    quiet = n_all < 8
 
     lede = (f"Every water and wastewater item from municipal council records "
             f"across {territory} and the upper Midwest. The Monday digest is "
@@ -104,6 +117,16 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
                 f'letter-spacing:-.02em;">{n}</div>'
                 f'<div style="font:400 15px/1.3 {MONO};letter-spacing:.06em;'
                 f'color:{P["secondary"]};padding-top:7px;">{l}</div></td>')
+
+    more = ""
+    if n_all > MAX_ITEMS:
+        more = (f'<table role="presentation" width="100%" cellpadding="0" '
+                f'cellspacing="0" border="0"><tr><td style="padding:18px 0 0;'
+                f'font:400 17px/1.5 {SANS};color:{P["secondary"]};">'
+                f'Showing the {MAX_ITEMS} strongest of {n_all} items. '
+                f'<a href="{TRACKER_URL}" style="color:{P["design"]};'
+                f'font-weight:600;">See all {n_all} on the tracker</a>.'
+                f'</td></tr></table>')
 
     rows = "".join(_row(s) for s in sigs) or (
         f'<tr><td style="padding:26px 0;font:400 17px/1.5 {SANS};'
@@ -144,13 +167,15 @@ def to_email_html(signals: Iterable, territory: str = "Wisconsin",
   style="margin:22px 0 6px;border-top:1px solid {P['line-hard']};
   border-bottom:1px solid {P['line']};">
   <tr>{stat(money(total) if total else '—', 'IDENTIFIED')}
-      {stat(len(sigs), 'NEW ITEMS')}
+      {stat(n_all, 'NEW ITEMS')}
       {stat(len({s.city for s in sigs}), 'MUNICIPALITIES')}</tr>
  </table>
 
  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
   {rows}
  </table>
+
+ {more}
 
  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
   style="margin-top:26px;">
