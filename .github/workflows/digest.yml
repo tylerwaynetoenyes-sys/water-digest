@@ -2,7 +2,7 @@ name: Weekly water digest
 
 on:
   schedule:
-    - cron: '0 12 * * 1'
+    - cron: '0 12 * * 1'   # Mondays 12:00 UTC = 7am Central
   workflow_dispatch:
 
 jobs:
@@ -22,13 +22,15 @@ jobs:
 
       - run: pip install requests
 
+      # Creates a DRAFT in Buttondown by default — it does not send.
+      # To send unattended, add a repository Variable (not a secret)
+      # named BUTTONDOWN_STATUS with the value: about_to_send
       - name: Build digest
         env:
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          DIGEST_FROM: ${{ vars.DIGEST_FROM }}
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          BUTTONDOWN_STATUS: ${{ vars.BUTTONDOWN_STATUS }}
         run: |
-          python ops.py run --days 14 --email-to "${{ vars.DIGEST_TO }}" \
-            2>&1 | tee run.log
+          python ops.py run --days 14 2>&1 | tee run.log
 
       - name: Rebuild public page
         run: |
@@ -43,12 +45,18 @@ jobs:
           git diff --staged --quiet || git commit -m "digest $(date -u +%F)"
           git push
 
+      # Pages needs a public repo or a paid plan. continue-on-error means
+      # a Pages problem can never block the digest, which is the product.
       - uses: actions/configure-pages@v5
+        continue-on-error: true
       - uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
         with:
           path: .
       - uses: actions/deploy-pages@v4
+        continue-on-error: true
 
+      # Runs last so a broken city surfaces without blocking anything above.
       - name: Fail loudly on health alarms
         if: always()
         run: |
