@@ -223,7 +223,10 @@ def send_email(sigs, subject: str | None = None) -> None:
 
     from email_template import to_email_html   # local import: optional dep
 
-    status = os.environ.get("BUTTONDOWN_STATUS", "draft")
+    # `or` not a .get default: GitHub Actions passes an *empty string* for
+    # an undefined repository variable, and .get() only falls back when the
+    # key is absent. An empty status fails Buttondown's enum validation.
+    status = os.environ.get("BUTTONDOWN_STATUS") or "draft"
     subject = subject or (
         f"Wisconsin water signals — {dt.date.today():%b %-d}")
     # fragment=True: Buttondown wraps this in its own template, so we must
