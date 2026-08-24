@@ -1,103 +1,103 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-08-17 — activity from the last 14 days*
+*2026-08-24 — activity from the last 14 days*
 
-**12 relevant items** across 2 municipalities. **$51,648,165** in identified appropriations.
+**12 relevant items** across 4 municipalities. **$29,046,185** in identified appropriations.
 
 ---
 
-### 🔴 Racine, WI — 0730-26
+### 🔴 Racine, WI — 0737-26
 
-**Request for Authorization to Submit Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Wisconsin Department of Natural Resources (WI-DNR) for FY2028 Lead Service Line (LSL) Loan.**
+**Communication sponsored by Alder Jorgensen, on behalf of the Waterworks Commission, for a resolution authorizing the issuance and sale of up to $7,692,681 Waterworks System Revenue Bonds, Series 2026A, and providing for other details and covenants with respect thereto, and approval of related Financial Assistance Agreement. Recommendation of the Waterworks Commission on 08-19-2026: To Approve with a Referral to the Finance and Personnel Committee.**
 
-`2026-08-10` · *Communication* · status: In Committee · **$30,000,000**
+`2026-08-12` · *Communication* · status: In Committee · **$7,692,681**
 
-<sub>signal 39 · matched: lead service line, service line replacement, lslr, intent to apply, loan, priority evaluation</sub>
+<sub>signal 23 · matched: drinking water, loan</sub>
 
-### 🔴 Racine, WI — 0731-26
+### 🔴 Racine, WI — 0738-26
 
-**Request for Authorization to Submit Intent to Apply (ITA) to the Wisconsin Department of Natural Resources (WI-DNR) for the 2028 Loan for Small Diameter Old Water Main Replacements.**
+**Communication sponsored by Alder Jorgensen, on behalf of the Waterworks Commission, for a resolution authorizing the issuance and sale of up to $18,800,607 Taxable Waterworks System Revenue Bonds, Series 2026B, and providing for other details and covenants with respect thereto, and approval of related Financial Assistance Agreement. Recommendation of the Waterworks Commission on 08-19-2026: To Approve with a Referral to the Finance and Personnel Committee.**
 
-`2026-08-10` · *Communication* · status: In Committee · **$17,000,000**
+`2026-08-12` · *Communication* · status: In Committee · **$21,353,504**
 
-<sub>signal 33 · matched: lslr, water main, intent to apply, loan</sub>
+<sub>signal 23 · matched: drinking water, loan</sub>
 
-### 🔴 Racine, WI — 0712-26
+### 🟡 St. Paul, MN — RES 26-1408
 
-**Bid Opening Results for Contract 2026-WW-SS-02, Lift Station #10 Upgrades.**
+**Approving assessment costs and setting date of City Council public hearing to ratify the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Griggs Scheffer Phase II paving project. File No. 19233C, Assessment No. 266002.**
 
-`2026-08-06` · *Communication* · status: In Committee · **$1,617,975**
+`2026-08-19` · *Resolution* · status: Agenda Ready
 
-<sub>signal 23 · matched: lift station, bid opening</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🔴 Racine, WI — 0710-26
+### 🟡 St. Paul, MN — RES PH 26-220
 
-**Request Sponsored by Commissioner Jorgensen from Utility Director for Authorization to Submit CWFL Intent to Apply (ITA) and Priority Evaluation and Ranking Form (PERF) to the Department of Natural Resources (DNR) for FY2028 Lift Station #1 Upgrade.**
+**Ratifying the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Griggs Scheffer Phase II paving project. File No. 19233C, Assessment No. 266002.**
 
-`2026-08-06` · *Communication* · status: In Committee
+`2026-08-19` · *Resolution-Public Hearing* · status: Agenda Ready
 
-<sub>signal 20 · matched: lift station, intent to apply, priority evaluation</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🔴 Racine, WI — 0724-26
+### 🟡 St. Paul, MN — RES 26-1415
 
-**Consideration of Change Order #2 on Contract W-25-6, STH 31 Water Main Replacement, A.W. Oakes & Son (Contractor)**
+**Approving assessment costs and setting date of City Council public hearing to ratify the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Grand: Fairview to Snelling paving project. File No. 19265C, Assessment No. 266003.**
 
-`2026-08-10` · *Communication* · status: In Committee · **$2,821,328**
+`2026-08-19` · *Resolution* · status: Agenda Ready
 
-<sub>signal 19 · matched: water main, change order</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🔴 Racine, WI — 0711-26
+### 🟡 St. Paul, MN — RES PH 26-223
 
-**Bid Opening Results for Contract 2026-WW-SS-03, Sanitary Sewer Lining.**
+**Ratifying the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Grand: Fairview to Snelling paving project. File No. 19265C, Assessment No. 266003.**
 
-`2026-08-06` · *Communication* · status: In Committee
+`2026-08-19` · *Resolution-Public Hearing* · status: Agenda Ready
 
-<sub>signal 19 · matched: sanitary sewer, sewer lining, sewer, bid opening</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🔴 Manitowoc, WI — 26-0700
+### 🟡 St. Paul, MN — RES 26-1419
 
-**Amendment No. 1 for the 2026 Sanitary Sewer Master Plan.**
+**Approving assessment costs and setting date of City Council public hearing to ratify the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Pelham: Franklin to Mississippi River Blvd paving project. File No. 19275C, Assessment No. 266005.**
 
-`2026-08-04` · *Request* · status: Agenda Ready
+`2026-08-19` · *Resolution* · status: Agenda Ready
 
-<sub>signal 19 · matched: sanitary sewer, sewer, master plan</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🔴 Racine, WI — 0706-26
+### 🟡 St. Paul, MN — RES PH 26-225
 
-**Consideration of an Amendment to the Professional Services Agreement with Carollo for UV Disinfection System Replacement.**
+**Ratifying the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Pelham: Franklin to Mississippi River Blvd paving project. File No.19275C, Assessment No. 266005.**
 
-`2026-08-06` · *Communication* · status: In Committee · **$180,121**
+`2026-08-19` · *Resolution-Public Hearing* · status: Agenda Ready
 
-<sub>signal 18 · matched: disinfection, professional services</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🟠 Racine, WI — 0726-26
+### 🟡 St. Paul, MN — RES 26-1389
 
-**Consideration of Change Order #1 on Contract W-26-4, 2026 Water Main Replacement - Phase 4, Reesmans Excavating & Grading, LLC (Contractor)**
+**Approving assessment costs and setting date of City Council public hearing to ratify the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Annapolis Street paving project. File No. 19249C, Assessment No. 266001.**
 
-`2026-08-10` · *Communication* · status: In Committee
+`2026-08-14` · *Resolution* · status: Agenda Ready
 
-<sub>signal 13 · matched: water main, change order</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🟠 Manitowoc, WI — 26-0732
+### 🟡 St. Paul, MN — RES PH 26-215
 
-**Report of Board of Public Works of 7/22/2026, of bids received for Televising Miscellaneous Sewers II - Project #WU-26-10; recommending awarding to Aqualis in the amount of $28,741.20.**
+**Ratifying the assessment for the replacement of sanitary sewer services within the right-of-way as part of the Annapolis Street paving project. File No. 19249C, Assessment No. 266001.**
 
-`2026-08-11` · *Report* · status: Consent Agenda · **$28,741**
+`2026-08-14` · *Resolution-Public Hearing* · status: Agenda Ready
 
-<sub>signal 12 · matched: sewer, bids received, awarding</sub>
+<sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🟡 Racine, WI — 0708-26
+### 🟡 Milwaukee, WI — 260622
 
-**Request by the Village of Caledonia for a Sanitary Sewer Extension at Harbor View.**
+**Resolution relating to a Certificate of Appropriateness for installation of a playground, various recreational facilities, and alterations to the comfort station, all along Meinecke Avenue, at 750 E. North Avenue, Kilbourn/Reservoir Park, an individually designated historic property, for Milwaukee Water Works.**
 
-`2026-08-06` · *Communication* · status: In Committee
+`2026-08-18` · *Resolution* · status: In Committee
 
-<sub>signal 11 · matched: sanitary sewer, sewer extension, sewer</sub>
+<sub>signal 9 · matched: reservoir, water works</sub>
 
-### 🟡 Manitowoc, WI — 26-0704
+### 🟡 Milwaukee County, WI — 26-606
 
-**Request to fund Storm Sewer Repair on Easement at Waldo and Fleetwood Drive.**
+**From the Executive Director of Milwaukee County Parks, requesting authorization to revoke the existing easement and enter into a new Storm Sewer Easement with the City of Wauwatosa for Milwaukee County-owned property located near Wisconsin Avenue and Wisconsin Avenue Park.**
 
-`2026-08-04` · *Request* · status: Agenda Ready
+`2026-08-11` · *Action Report* · status: In Committee
 
 <sub>signal 8 · matched: storm sewer, sewer</sub>
 
