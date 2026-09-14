@@ -1,79 +1,55 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-09-07 — activity from the last 14 days*
+*2026-09-14 — activity from the last 14 days*
 
-**9 relevant items** across 4 municipalities. **$339,947** in identified appropriations.
+**6 relevant items** across 4 municipalities. **$331,600** in identified appropriations.
 
 ---
 
-### 🟠 Madison, WI — 94625
+### 🟠 Racine, WI — 0816-26
 
-**Awarding Public Works Contract No. 9668, Mayflower Lift Station Replacement project. (District 14)**
+**Communication sponsored by Alder Harmon, submitting bid results for Contract 2026413 - Lateral Lining 2026 - Greater North Bay - Phase I. Staff Recommendation to the Public Works and Services Committee on 09.29.26: That Contract 2026413 - - Lateral Lining 2026 - Greater North Bay - Phase I, be awarded to Musson Brothers Inc., in the amount of $325,500.00, they being the lowest responsible, responsive bidder.**
 
-`2026-09-02` · *Resolution* · status: Items Referred
+`2026-09-10` · *Communication* · status: Introduced In Council · **$325,500**
 
-<sub>signal 17 · matched: lift station, awarding</sub>
+<sub>signal 13 · matched: sanitary sewer, sewer</sub>
 
-### 🟠 Madison, WI — 94629
+### 🟠 Racine, WI — 0815-26
 
-**Change Order No. 8 to Contract 9342, Well 15 PFAS Treatment Facility, to Joe Daniels Construction Co., Inc., for $23,909.20 (over contingency). (District 12)**
+**Consideration of Change Order #1 on Contract W-26-2, 2026 Water Main Replacement - Phase-2, Earth X, LLC (contractor)**
 
-`2026-09-02` · *Miscellaneous* · status: In Committee · **$23,909**
+`2026-09-09` · *Communication* · status: In Committee · **$6,100**
 
-<sub>signal 15 · matched: pfas, change order</sub>
+<sub>signal 13 · matched: water main, change order</sub>
 
-### 🟠 St. Paul, MN — RES 26-1512
+### 🟡 Manitowoc, WI — 26-0831
 
-**Pertaining to Board approval to use Master Contract No. 4747 with Jacobs to provide engineering services to conduct a feasibility study for removing the Low Service Reservoir from service for future structural condition assessments and maintenance.**
+**Report of Board of Public Works of 9/9/2026 of approval to enter into AGMT-26-04 with Bob Braun Excavating, LLC, to reconstruct the asphalt pavement within the access easement for the River Heights Lift Station as outlined in "Exhibit A", Bob Braun Excavating, LLC Proposal; recommending acceptance of report and place on file.**
 
-`2026-08-28` · *Resolution* · status: Agenda Ready
+`2026-09-14` · *Report* · status: Consent Agenda
 
-<sub>signal 15 · matched: reservoir, feasibility</sub>
+<sub>signal 11 · matched: lift station</sub>
 
-### 🟠 Racine, WI — 0805-26
+### 🟡 St. Paul, MN — Ord 26-46
 
-**Consideration of the Proposal from Ruekert-Mielke for Design Services to Replace Local Water Mains for FY2028.**
+**Amending Chapter 51.01 of the Administrative Code, titled Disposition of City Property, Authority and procedure, to allow for conveyance of real property used by the Saint Paul Regional Water Services, to the Board of Water Commissioners.**
 
-`2026-09-04` · *Communication* · status: In Committee · **$316,038**
+`2026-09-09` · *Ordinance* · status: Agenda Ready
 
-<sub>signal 13 · matched: water main</sub>
+<sub>signal 7 · matched: water service</sub>
 
-### 🟡 Milwaukee, WI — 260668
+### 🟡 Racine, WI — 0824-26
 
-**Resolution authorizing the proper City officials to execute a sewer easement for the City of Milwaukee sanitary sewer located between a point approximately 210 feet east of South Kansas Avenue in East Howard Avenue in St. Francis’ municipal boundaries and the Milwaukee City Limits.**
+**Consideration of the 2027 Sewer Service Rates.**
 
-`2026-09-01` · *Resolution* · status: In Committee
+`2026-09-10` · *Communication* · status: In Committee
 
-<sub>signal 10 · matched: sanitary sewer, sewer</sub>
+<sub>signal 6 · matched: sewer</sub>
 
-### 🟡 Madison, WI — 94510
+### 🟡 Waukesha, WI — ID#26-04310
 
-**Assessing Benefits S. Paterson Street Sanitary Sewer Replacement Assessment District - 2024. (District 6)**
+**Review and possible action on requests for one-time sewer credits.**
 
-`2026-08-28` · *Resolution* · status: Items Referred
-
-<sub>signal 10 · matched: sanitary sewer, sewer</sub>
-
-### 🟡 St. Paul, MN — RES 26-1510
-
-**Pertaining to Amendment No. 1 to the Private Water Main Agreement with WestSP Development Partners, LLC (“Developer”) to supply water to the Thompson Oaks Development at 160 Thompson Avenue East in the city of West Saint Paul.**
-
-`2026-08-28` · *Resolution* · status: Agenda Ready
-
-<sub>signal 10 · matched: water main</sub>
-
-### 🟡 Racine, WI — 0806-26
-
-**Consideration for the Water Utility to Join the Water Research Foundation Project 5428, Establishing Standardized Guidelines for Embedding O&M Considerations into the Design Process.**
-
-`2026-09-04` · *Communication* · status: In Committee
-
-<sub>signal 7 · matched: water utility</sub>
-
-### 🟡 Milwaukee, WI — 260660
-
-**Resolution relating to the application, acceptance, and execution of funding of a Milwaukee Metropolitan Sewerage District Green Solutions grant for the installation of bioswales along West Lapham Boulevard from South 6th Street to South 16th Street, and authorizing entry into a post-installation Maintenance Covenant with MMSD, in the 12th Aldermanic District.**
-
-`2026-09-01` · *Resolution* · status: In Committee
+`2026-09-11` · *Discussion and Authorization re:  * · status: Agenda Ready
 
 <sub>signal 6 · matched: sewer</sub>
 
