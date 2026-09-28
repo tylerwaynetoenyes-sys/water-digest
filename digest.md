@@ -1,41 +1,41 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-09-21 — activity from the last 14 days*
+*2026-09-28 — activity from the last 14 days*
 
-**4 relevant items** across 3 municipalities. **$53,000** in identified appropriations.
+**4 relevant items** across 2 municipalities.
 
 ---
 
-### 🟡 St. Paul, MN — RES PH 26-268
+### 🟡 Milwaukee, WI — 260799
 
-**Amending the 2026 Saint Paul Regional Water Services budget resulting in an increase in spending and financing of $53,000 for a Metropolitan Council grant.**
+**Resolution relating to a Certificate of Appropriateness for porch repairs at 132 W. Reservoir Avenue, in the Brewers Hill Historic District for Matt & Kristi Meyer.**
 
-`2026-09-10` · *Resolution-Public Hearing* · status: Agenda Ready · **$53,000**
+`2026-09-21` · *Resolution* · status: In Committee
 
-<sub>signal 10 · matched: water service</sub>
+<sub>signal 7 · matched: reservoir</sub>
 
-### 🟡 Madison, WI — 94841
+### 🟡 Madison, WI — 94937
 
-**Public Hearing: Stormwater Utility Request for Tree Removal Permit for Castle Creek Channel Improvements at Warner Park.**
+**Water Utility Board Membership and Elections.**
 
-`2026-09-15` · *Miscellaneous* · status: In Committee
+`2026-09-23` · *Miscellaneous* · status: Items Referred
 
-<sub>signal 8 · matched: water utility, stormwater</sub>
+<sub>signal 7 · matched: water utility</sub>
 
-### 🟡 Manitowoc, WI — 26-0851
+### 🟡 Milwaukee, WI — 260736
 
-**Ordinance to amend Chapter 25 of the Municipal Code regulating Wastewater Facilities.**
+**Resolution accepting control of six gateway sign locations from the Milwaukee Metropolitan Sewerage District and authorizing related agreements.**
 
-`2026-09-17` · *Ordinance* · status: Agenda Ready
+`2026-09-22` · *Resolution* · status: In Committee
 
-<sub>signal 7 · matched: wastewater</sub>
+<sub>signal 6 · matched: sewer</sub>
 
-### 🟡 Manitowoc, WI — 26-0838
+### 🟡 Milwaukee, WI — 260768
 
-**Stormwater Management Facility Maintenance Agreement with Manitowoc Storage Solutions, LLC.**
+**Resolution establishing the 2027 Local Sewerage Charge.**
 
-`2026-09-14` · *Agreement* · status: Agenda Ready
+`2026-09-22` · *Resolution* · status: In Committee
 
-<sub>signal 6 · matched: stormwater</sub>
+<sub>signal 6 · matched: sewer</sub>
 
 ---
 
