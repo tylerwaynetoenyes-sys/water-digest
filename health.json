@@ -2,41 +2,41 @@
   "madison": {
     "empty_runs": 0,
     "ever_produced": true,
-    "last_hit": "2026-09-28"
+    "last_hit": "2026-10-12"
   },
   "manitowoc": {
     "empty_runs": 0,
     "ever_produced": true,
-    "last_hit": "2026-09-28"
+    "last_hit": "2026-10-12"
   },
   "milwaukee": {
-    "empty_runs": 0,
+    "empty_runs": 1,
     "ever_produced": true,
     "last_hit": "2026-09-28"
   },
   "milwaukeecounty": {
-    "empty_runs": 5,
+    "empty_runs": 6,
     "ever_produced": true,
     "last_hit": "2026-08-24"
   },
   "minneapolismn": {
-    "empty_runs": 13,
+    "empty_runs": 14,
     "ever_produced": false,
     "last_hit": null
   },
   "racine": {
-    "empty_runs": 1,
+    "empty_runs": 0,
     "ever_produced": true,
-    "last_hit": "2026-09-21"
+    "last_hit": "2026-10-12"
   },
   "stpaul": {
-    "empty_runs": 1,
+    "empty_runs": 0,
     "ever_produced": true,
-    "last_hit": "2026-09-21"
+    "last_hit": "2026-10-12"
   },
   "waukesha": {
-    "empty_runs": 1,
+    "empty_runs": 0,
     "ever_produced": true,
-    "last_hit": "2026-09-21"
+    "last_hit": "2026-10-12"
   }
 }
