@@ -1,97 +1,65 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-10-12 — activity from the last 14 days*
+*2026-10-19 — activity from the last 14 days*
 
-**11 relevant items** across 5 municipalities. **$10,307,705** in identified appropriations.
+**7 relevant items** across 4 municipalities. **$850,000** in identified appropriations.
 
 ---
 
-### 🔴 Racine, WI — 0928-26
+### 🟠 Racine, WI — 0937-26
 
-**Consideration of Change Order #4 on Contract A-23, Chicory Road Area Sewer Improvements - Miron Construction (Contractor)**
+**Consideration of Developer's Agreement for the Sanctuary at Pike River.**
 
-`2026-10-09` · *Communication* · status: In Committee · **$10,262,705**
+`2026-10-12` · *Communication* · status: In Committee · **$850,000**
 
-<sub>signal 19 · matched: sewer, change order</sub>
+<sub>signal 16 · matched: water main</sub>
 
-### 🟠 Racine, WI — 0934-26
+### 🟡 Racine, WI — 0962-26
 
-**Consideration for the Racine Water Utility to be a part of the Proposal by CDM Smith for the Water Research Foundation Project 5418, Optimizing PFAS Treatment Systems for Multi-Contaminant Removal and Operational Benefits.**
+**Communication sponsored by Alder Harmon, on behalf of the Assistant Commissioner of Public Works/Operations requesting to waive formal bidding for the Purchase of Neenah Foundry Sewer Related Materials. Staff Recommendation to the Public Works and Services Committee on 10.27.26: That the request of the Assistant Commissioner of Public Works to waive formal bidding procedures for the purchase of Neenah Foundry products be approved.**
 
-`2026-10-12` · *Communication* · status: In Committee · **$30,000**
+`2026-10-14` · *Communication* · status: Introduced In Council
 
-<sub>signal 14 · matched: pfas, water utility</sub>
+<sub>signal 11 · matched: sanitary sewer, storm sewer, sewer</sub>
 
-### 🟠 Racine, WI — 0940-26
+### 🟡 Madison, WI — 95271
 
-**Consideration of Change Order No. 1 for Contract W-25-8, 42" Transmission Water Main - Phase 4, A.W. Oakes & Son, Inc. (Contractor)**
+**Declaration of Public Works Emergency for the Failure of sanitary sewer main on Tulane Ave (near 3572 Hargrove St.) (District 15)**
 
-`2026-10-12` · *Communication* · status: In Committee
-
-<sub>signal 13 · matched: water main, change order</sub>
-
-### 🟡 Racine, WI — 0925-26
-
-**Request by the Village of Caledonia for a Sanitary Sewer Extension at Audubon Arboretum subdivision (Phase 2)**
-
-`2026-10-09` · *Communication* · status: In Committee
-
-<sub>signal 11 · matched: sanitary sewer, sewer extension, sewer</sub>
-
-### 🟡 Madison, WI — 95079
-
-**Authorizing the City Engineer to enter into a Utility Occupancy License agreement and future Right of Entry agreements with the SOO Line Railroad Company (Canadian Pacific Kansas City Rail or CPKC) for the construction, rights and maintenance of a sanitary sewer main within the property at 1894 E. Johnson St. and authorizing the indemnification of Canadian Pacific, SOO Line Railroad Company, their subsidiaries, affiliates, and other rail operators. (District 12)**
-
-`2026-09-30` · *Resolution* · status: Report of Officer
+`2026-10-15` · *Miscellaneous* · status: In Committee
 
 <sub>signal 10 · matched: sanitary sewer, sewer</sub>
 
-### 🟡 Racine, WI — 0933-26
+### 🟡 Milwaukee, WI — 260821
 
-**Consideration of the Proposal from CDM Smith for Design Services to Replace Local Water Mains for FY2028.**
+**Resolution relating to acceptance and funding of the 2026-27 Epidemiology & Lab Capacity National Wastewater Surveillance System grant from the Wisconsin Department of Health Services.**
 
-`2026-10-12` · *Communication* · status: In Committee
+`2026-10-13` · *Resolution* · status: In Committee
 
-<sub>signal 10 · matched: water main</sub>
+<sub>signal 7 · matched: wastewater</sub>
 
-### 🟡 Waukesha, WI — ID#26-04362
+### 🟡 Milwaukee, WI — 260869
 
-**Review and possible action on the State-Local Building Resilient Infrastructure & Communities (BRIC) grant agreement between the Wisconsin Division of Emergency Management (WEM) and the City of Waukesha for the Area 10 Floodplain Storage and Storm Sewer Improvements Design.**
+**Resolution authorizing the Department of Public Works - Milwaukee Water Works to execute a second amendment to extend the intergovernmental cooperation agreement between the City of Milwaukee and the Milwaukee Public Schools for the School to Work Transition Program.**
 
-`2026-09-30` · *Discussion and Recommendation* · status: Consent Agenda
+`2026-10-13` · *Resolution* · status: In Committee
 
-<sub>signal 8 · matched: storm sewer, sewer</sub>
+<sub>signal 7 · matched: water works</sub>
 
-### 🟡 Manitowoc, WI — 26-0910
+### 🟡 Madison, WI — 95235
 
-**CAWG Request (Unbudgeted) from Engineering for amount not to exceed $15,000 for repair of storm sewer endwall undermining at Waldo & Fleetwood.**
+**BY TITLE ONLY: Authorizing the issuance and establishing the parameters for the sale of not to exceed $[________] Sewer System Revenue Bonds, Series 2026-C, providing for the amendment of the prior resolutions, and directing the final approval of the terms thereof.**
 
-`2026-10-02` · *Request* · status: Passed · **$15,000**
-
-<sub>signal 8 · matched: storm sewer, sewer</sub>
-
-### 🟡 St. Paul, MN — RES 26-1690
-
-**Approving the Memorandums of Agreement between the City and the Saint Paul Manual & Maintenance Supervisors Association for the purpose of providing On-Call pay in the Saint Paul Regional Water Services Distribution and Production divisions. (To be laid over for one week for adoption)**
-
-`2026-09-30` · *Resolution* · status: Agenda Ready
-
-<sub>signal 7 · matched: water service</sub>
-
-### 🟡 St. Paul, MN — RES 26-1705
-
-**Supplementing the General Resolution (CF 88-835) Relating to Sewer Revenue Bonds and providing for the issuance of Sewer Revenue Bonds, Series 2026D (Green Bonds) and taking other required actions.**
-
-`2026-10-05` · *Resolution* · status: Agenda Ready
+`2026-10-13` · *Resolution* · status: Items Referred
 
 <sub>signal 6 · matched: sewer</sub>
 
-### 🟡 St. Paul, MN — RES 26-1718
+### 🟡 Manitowoc, WI — 26-0944
 
-**Authorizing the Department of Public Works-Sewer Utility to enter into a Cooperative Maintenance Agreement with the Ramsey-Washington Metro Watershed District for maintenance of the City-owned Birmingham-York, Wildview-Lenox, and Burg-Stinchfield Ponds.**
+**Stormwater Management Facility Maintenance Agreement with Maritime Lofts, LLC.**
 
-`2026-10-05` · *Resolution* · status: Agenda Ready
+`2026-10-14` · *Agreement* · status: Agenda Ready
 
-<sub>signal 6 · matched: sewer</sub>
+<sub>signal 6 · matched: stormwater</sub>
 
 ---
 
