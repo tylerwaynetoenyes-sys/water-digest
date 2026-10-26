@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-10-19T18:31:56",
+  "last_run": "2026-10-26T18:29:39",
   "seen": [
     "madison:94510",
     "madison:94625",
@@ -62,6 +62,8 @@
     "stpaul:RES 26-1690",
     "stpaul:RES 26-1705",
     "stpaul:RES 26-1718",
+    "stpaul:RES 26-1793",
+    "stpaul:RES 26-1797",
     "stpaul:RES PH 26-215",
     "stpaul:RES PH 26-220",
     "stpaul:RES PH 26-223",
@@ -69,7 +71,9 @@
     "stpaul:RES PH 26-225",
     "stpaul:RES PH 26-230",
     "stpaul:RES PH 26-268",
+    "stpaul:RLH WB 26-4",
     "waukesha:ID#26-04310",
-    "waukesha:ID#26-04362"
+    "waukesha:ID#26-04362",
+    "waukesha:ID#26-04503"
   ]
 }

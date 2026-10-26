@@ -1,65 +1,41 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-10-19 — activity from the last 14 days*
+*2026-10-26 — activity from the last 14 days*
 
-**7 relevant items** across 4 municipalities. **$850,000** in identified appropriations.
+**4 relevant items** across 2 municipalities.
 
 ---
 
-### 🟠 Racine, WI — 0937-26
+### 🟠 Waukesha, WI — ID#26-04503
 
-**Consideration of Developer's Agreement for the Sanctuary at Pike River.**
+**Review and act on the Amendment of Municipal Code Chapter 29, Sewer Use and Wastewater Treatment.**
 
-`2026-10-12` · *Communication* · status: In Committee · **$850,000**
+`2026-10-20` · *Discussion and Recommendation* · status: Agenda Ready
 
-<sub>signal 16 · matched: water main</sub>
+<sub>signal 15 · matched: wastewater treatment, wastewater, sewer</sub>
 
-### 🟡 Racine, WI — 0962-26
+### 🟡 St. Paul, MN — RES 26-1793
 
-**Communication sponsored by Alder Harmon, on behalf of the Assistant Commissioner of Public Works/Operations requesting to waive formal bidding for the Purchase of Neenah Foundry Sewer Related Materials. Staff Recommendation to the Public Works and Services Committee on 10.27.26: That the request of the Assistant Commissioner of Public Works to waive formal bidding procedures for the purchase of Neenah Foundry products be approved.**
+**Resolution Authorizing a Temporary Easement via a Right of Entry Permit to the City of Saint Paul for the Capital City Bikeway Project and a Permanent Easement to District Heat and Energy, or Its Affiliate or Subsidiary, for Heating and Chilled Water Services at Smith Avenue Parking Ramp and Transit Center, 145 N Smith Avenue, in District 17, Ward 2.**
 
-`2026-10-14` · *Communication* · status: Introduced In Council
+`2026-10-19` · *Resolution* · status: Agenda Ready
 
-<sub>signal 11 · matched: sanitary sewer, storm sewer, sewer</sub>
+<sub>signal 7 · matched: water service</sub>
 
-### 🟡 Madison, WI — 95271
+### 🟡 St. Paul, MN — RLH WB 26-4
 
-**Declaration of Public Works Emergency for the Failure of sanitary sewer main on Tulane Ave (near 3572 Hargrove St.) (District 15)**
+**Appeal of Colleen Skari to a Water Service Bill at 390 LARPENTEUR AVENUE EAST.**
 
-`2026-10-15` · *Miscellaneous* · status: In Committee
+`2026-10-14` · *Resolution LH Water Bill Appeal* · status: Agenda Ready
 
-<sub>signal 10 · matched: sanitary sewer, sewer</sub>
+<sub>signal 7 · matched: water service</sub>
 
-### 🟡 Milwaukee, WI — 260821
+### 🟡 St. Paul, MN — RES 26-1797
 
-**Resolution relating to acceptance and funding of the 2026-27 Epidemiology & Lab Capacity National Wastewater Surveillance System grant from the Wisconsin Department of Health Services.**
+**Approving the City’s cost of providing Miscellaneous Abatement (Energy Bill, and Emergency Sewer Repair) services, and setting date of Legislative Hearing for December 15, 2026 and City Council public hearing for February 17, 2027 to consider and levy the assessments against individual properties. (File No. J2700A, Assessment No. 278500)**
 
-`2026-10-13` · *Resolution* · status: In Committee
-
-<sub>signal 7 · matched: wastewater</sub>
-
-### 🟡 Milwaukee, WI — 260869
-
-**Resolution authorizing the Department of Public Works - Milwaukee Water Works to execute a second amendment to extend the intergovernmental cooperation agreement between the City of Milwaukee and the Milwaukee Public Schools for the School to Work Transition Program.**
-
-`2026-10-13` · *Resolution* · status: In Committee
-
-<sub>signal 7 · matched: water works</sub>
-
-### 🟡 Madison, WI — 95235
-
-**BY TITLE ONLY: Authorizing the issuance and establishing the parameters for the sale of not to exceed $[________] Sewer System Revenue Bonds, Series 2026-C, providing for the amendment of the prior resolutions, and directing the final approval of the terms thereof.**
-
-`2026-10-13` · *Resolution* · status: Items Referred
+`2026-10-20` · *Resolution* · status: Agenda Ready
 
 <sub>signal 6 · matched: sewer</sub>
-
-### 🟡 Manitowoc, WI — 26-0944
-
-**Stormwater Management Facility Maintenance Agreement with Maritime Lofts, LLC.**
-
-`2026-10-14` · *Agreement* · status: Agenda Ready
-
-<sub>signal 6 · matched: stormwater</sub>
 
 ---
 
