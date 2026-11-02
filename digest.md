@@ -1,39 +1,23 @@
 # Municipal Water & Wastewater Signal Digest
-*2026-10-26 — activity from the last 14 days*
+*2026-11-02 — activity from the last 14 days*
 
-**4 relevant items** across 2 municipalities.
+**2 relevant items** across 2 municipalities.
 
 ---
 
-### 🟠 Waukesha, WI — ID#26-04503
+### 🟡 St. Paul, MN — RES PH 26-296
 
-**Review and act on the Amendment of Municipal Code Chapter 29, Sewer Use and Wastewater Treatment.**
+**Setting the 2027 Sanitary Sewer and Storm Sewer rates. (to be laid over to December 2, 2026)**
 
-`2026-10-20` · *Discussion and Recommendation* · status: Agenda Ready
+`2026-10-20` · *Resolution-Public Hearing* · status: Agenda Ready
 
-<sub>signal 15 · matched: wastewater treatment, wastewater, sewer</sub>
+<sub>signal 11 · matched: sanitary sewer, storm sewer, sewer</sub>
 
-### 🟡 St. Paul, MN — RES 26-1793
+### 🟡 Milwaukee, WI — 260964
 
-**Resolution Authorizing a Temporary Easement via a Right of Entry Permit to the City of Saint Paul for the Capital City Bikeway Project and a Permanent Easement to District Heat and Energy, or Its Affiliate or Subsidiary, for Heating and Chilled Water Services at Smith Avenue Parking Ramp and Transit Center, 145 N Smith Avenue, in District 17, Ward 2.**
+**Authorizing the Sale and Issuance of Sewerage System Second Lien Revenue Bonds, Series 2026 S6.**
 
-`2026-10-19` · *Resolution* · status: Agenda Ready
-
-<sub>signal 7 · matched: water service</sub>
-
-### 🟡 St. Paul, MN — RLH WB 26-4
-
-**Appeal of Colleen Skari to a Water Service Bill at 390 LARPENTEUR AVENUE EAST.**
-
-`2026-10-14` · *Resolution LH Water Bill Appeal* · status: Agenda Ready
-
-<sub>signal 7 · matched: water service</sub>
-
-### 🟡 St. Paul, MN — RES 26-1797
-
-**Approving the City’s cost of providing Miscellaneous Abatement (Energy Bill, and Emergency Sewer Repair) services, and setting date of Legislative Hearing for December 15, 2026 and City Council public hearing for February 17, 2027 to consider and levy the assessments against individual properties. (File No. J2700A, Assessment No. 278500)**
-
-`2026-10-20` · *Resolution* · status: Agenda Ready
+`2026-11-04` · *Resolution* · status: Introduced
 
 <sub>signal 6 · matched: sewer</sub>
 
